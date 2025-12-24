@@ -10,15 +10,15 @@ type Block = {
 
 const createBlocks = (count: number): Block[] => {
   return Array.from({ length: count }, () => ({
-    x: Math.random() * 200 - 100,
-    y: Math.random() * 200 - 100,
+    x: Math.random() * 100,
+    y: Math.random() * 180 - 100,
     size: Math.random() * 50 + 20,
     depth: Math.random() * 0.8 + 0.2,
     color: `hsl(0, 0%, ${Math.random() * 60 + 20}%)`,
   }));
 };
 
-export const BackgroundBlocks = () => {
+export const WorldBlocksLayer = () => {
   const [blocks] = useState<Block[]>(() => createBlocks(30));
   const [scrollY, setScrollY] = useState(0);
 
@@ -29,7 +29,7 @@ export const BackgroundBlocks = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden">
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
       {blocks.map((block, index) => {
         const translateY = scrollY * block.depth * 0.2;
 
