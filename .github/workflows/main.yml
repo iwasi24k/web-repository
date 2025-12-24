@@ -26,6 +26,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Prepare diff
         run: |
           BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
@@ -54,7 +63,9 @@ jobs:
 
       - name: Create payload
         run: |
-          SYSTEM_PROMPT="あなたはシニアソフトウェアエンジニアです。以下のプルリクエストの差分コードをレビューし、問題点・改善点・潜在的なバグを簡潔に指摘してください。"
+          SYSTEM_PROMPT="あなたはシニアソフトウェアエンジニアです。  
+          以下のプルリクエストは Tailwind CSS v4 を使用した React + TypeScript プロジェクトです。  
+          Tailwind v4 の最新仕様に基づき、コードの問題点・改善点・潜在的なバグを簡潔に指摘してください。"
           jq -n --rawfile user "$DIFF_FILE" \
             --arg model "$OPENAI_MODEL" \
             --arg system "$SYSTEM_PROMPT" \
