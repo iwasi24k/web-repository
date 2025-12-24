@@ -29,7 +29,7 @@ export const WorldBlocksLayer = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 z-20 overflow-hidden pointer-events-none">
       {blocks.map((block, index) => {
         const translateY = scrollY * block.depth * 0.2;
 

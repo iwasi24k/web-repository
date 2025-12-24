@@ -1,0 +1,15 @@
+import heroImage from '../../assets/test.png';
+
+const HeroSection = () => {
+  return (
+    <section className="relative h-screen">
+      <img
+        src={heroImage}
+        alt="Hero Background"
+        className="absolute inset-0 z-10 object-cover w-full h-full"
+      />
+    </section>
+  );
+};
+
+export default HeroSection;
