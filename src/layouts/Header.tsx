@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header
       className="
-        fixed top-0 left-0 right-0 z-20
+        fixed top-0 left-0 right-0 z-50
         h-24
         bg-black/40 backdrop-blur-md
         border-d border-white/10

@@ -10,11 +10,12 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col text-void-white font-sans selection:bg-void-purple selection:text-white">
       <WorldBlocksLayer />
-      <Header />
 
-      <main className="flex-1 relative z-10">
+      <main className="flex-1 relative">
         {children}
       </main>
+      
+      <Header />
     </div>
   );
 };
