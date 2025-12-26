@@ -32,25 +32,25 @@ const SECTIONS_DATA = [
     id: 'pipeline',
     title: "DEVELOPMENT PIPELINE", 
     bgColor: VOID_GRAY_1, 
-    textColor: VOID_BLACK 
+    textColor: VOID_GRAY_4 
   },
   { 
     id: 'web-eng-1',
     title: "WEB ENGINEERING", 
     bgColor: VOID_GRAY_2, 
-    textColor: VOID_BLACK 
+    textColor: VOID_GRAY_3 
   },
   { 
     id: 'web-eng-2',
     title: "WEB ENGINEERING", 
     bgColor: VOID_GRAY_3, 
-    textColor: VOID_WHITE 
+    textColor: VOID_GRAY_2 
   },
   { 
     id: 'game-eng-1',
     title: "GAME ENGINEERING", 
     bgColor: VOID_GRAY_4, 
-    textColor: VOID_WHITE 
+    textColor: VOID_GRAY_1 
   },
   { 
     id: 'game-eng-2',
