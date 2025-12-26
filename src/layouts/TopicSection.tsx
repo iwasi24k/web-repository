@@ -1,4 +1,5 @@
 import TextBlock, { type TextBlockProps } from "../components/ui/TextBlock";
+import TextTitle, { type TextTitleProps } from "../components/ui/TextTitle";
 
 // x/y は常に「要素中心」を基準とした座標とします
 // そのため translateX(-50%) は常時適用します
@@ -14,8 +15,10 @@ type TopicSectionProps = {
   label: TextBlockProps;
 
   // description props
-  titleColor?: string;
-  title: string;
+  title: TextTitleProps;
+  // titleColor?: string;
+  // titleSize?: string;
+  // title: string;
   
   // title props
   descriptionColor?: string;
@@ -27,7 +30,6 @@ const TopicSection = ({
   x = "50%",
   y = "0",
   label,
-  titleColor = "#fff",
   title,
   descriptionColor = "#fff",
   description,
@@ -47,9 +49,7 @@ const TopicSection = ({
     >
       <TextBlock {...label} />
 
-      <h2 className="text-[2rem] font-semibold tracking-wide" style={{ color: titleColor }}>
-        {title}
-      </h2>
+      <TextTitle {...title} />
 
       <div className="text-base leading-relaxed" style={{ color: descriptionColor }}>
         {description}
