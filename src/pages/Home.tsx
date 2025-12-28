@@ -4,10 +4,6 @@ import TextTitle from "../components/ui/TextTitle";
 import { HOME_SECTIONS_DATA } from "../data/homeSections";
 // import TopicSection from "../layouts/TopicSection";
 
-const CUSTOM_SIZE_CLASS = "min-h-[100dvh]";
-// const CUSTOM_SIZE_CLASS_MIN = "min-h-[90dvh]";
-// const CUSTOM_SIZE_CLASS_MAX = "min-h-[150dvh]";
-
 // CSS変数定義
 const FOOTER_COLOR = "#0a0a0a";
 
@@ -24,7 +20,7 @@ const Home = () => {
         <WorldSection 
           key={section.id} 
           bgColor={section.bgColor} 
-          sectionSize={CUSTOM_SIZE_CLASS}
+          sectionSize={section.sectionSize}
         >
           {/* Title */}
           <div 
