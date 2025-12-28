@@ -1,7 +1,7 @@
 import HeroSection from "../components/sections/HeroSection";
 import WorldSection from "../components/world/WorldSection";
 import TextTitle from "../components/ui/TextTitle";
-import { VOID_COLORS } from "../design/colors";
+import { HOME_SECTIONS_DATA } from "../data/homeSections";
 // import TopicSection from "../layouts/TopicSection";
 
 const CUSTOM_SIZE_CLASS = "min-h-[100dvh]";
@@ -13,46 +13,6 @@ const FOOTER_COLOR = "#0a0a0a";
 
 const TITLE_LEFT_POSITION = "7%";
 
-// セクションデータ定義
-const SECTIONS_DATA = [
-  { 
-    id: 'system',
-    title: "GAME SYSTEM", 
-    bgColor: VOID_COLORS.WHITE, 
-    textColor: VOID_COLORS.BLACK 
-  },
-  { 
-    id: 'pipeline',
-    title: "DEVELOPMENT PIPELINE", 
-    bgColor: VOID_COLORS.GRAY_1, 
-    textColor: VOID_COLORS.GRAY_4 
-  },
-  { 
-    id: 'web-eng-1',
-    title: "WEB ENGINEERING", 
-    bgColor: VOID_COLORS.GRAY_2, 
-    textColor: VOID_COLORS.GRAY_3 
-  },
-  { 
-    id: 'web-eng-2',
-    title: "WEB ENGINEERING", 
-    bgColor: VOID_COLORS.GRAY_3, 
-    textColor: VOID_COLORS.GRAY_2 
-  },
-  { 
-    id: 'game-eng-1',
-    title: "GAME ENGINEERING", 
-    bgColor: VOID_COLORS.GRAY_4, 
-    textColor: VOID_COLORS.GRAY_1 
-  },
-  { 
-    id: 'game-eng-2',
-    title: "GAME ENGINEERING", 
-    bgColor: VOID_COLORS.BLACK, 
-    textColor: VOID_COLORS.WHITE 
-  },
-];
-
 const Home = () => {
   return (
     <div>
@@ -60,7 +20,7 @@ const Home = () => {
       <HeroSection />
 
       {/* Dynamic Sections Loop */}
-      {SECTIONS_DATA.map((section) => (
+      {HOME_SECTIONS_DATA.map((section) => (
         <WorldSection 
           key={section.id} 
           bgColor={section.bgColor} 
