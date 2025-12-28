@@ -1,6 +1,7 @@
 import HeroSection from "../components/sections/HeroSection";
 import WorldSection from "../components/world/WorldSection";
 import TextTitle from "../components/ui/TextTitle";
+import { VOID_COLORS } from "../design/colors";
 // import TopicSection from "../layouts/TopicSection";
 
 const CUSTOM_SIZE_CLASS = "min-h-[100dvh]";
@@ -8,14 +9,6 @@ const CUSTOM_SIZE_CLASS = "min-h-[100dvh]";
 // const CUSTOM_SIZE_CLASS_MAX = "min-h-[150dvh]";
 
 // CSS変数定義
-const VOID_BLACK = "var(--color-void-black)";
-const VOID_WHITE = "var(--color-void-white)";
-const VOID_GRAY_1 = "var(--color-void-gray-1)";
-const VOID_GRAY_2 = "var(--color-void-gray-2)";
-const VOID_GRAY_3 = "var(--color-void-gray-3)";
-const VOID_GRAY_4 = "var(--color-void-gray-4)";
-// const VOID_PURPLE = "var(--color-void-purple)";
-// const VOID_YELLOW = "var(--color-void-yellow)";
 const FOOTER_COLOR = "#0a0a0a";
 
 const TITLE_LEFT_POSITION = "7%";
@@ -25,38 +18,38 @@ const SECTIONS_DATA = [
   { 
     id: 'system',
     title: "GAME SYSTEM", 
-    bgColor: VOID_WHITE, 
-    textColor: VOID_BLACK 
+    bgColor: VOID_COLORS.WHITE, 
+    textColor: VOID_COLORS.BLACK 
   },
   { 
     id: 'pipeline',
     title: "DEVELOPMENT PIPELINE", 
-    bgColor: VOID_GRAY_1, 
-    textColor: VOID_GRAY_4 
+    bgColor: VOID_COLORS.GRAY_1, 
+    textColor: VOID_COLORS.GRAY_4 
   },
   { 
     id: 'web-eng-1',
     title: "WEB ENGINEERING", 
-    bgColor: VOID_GRAY_2, 
-    textColor: VOID_GRAY_3 
+    bgColor: VOID_COLORS.GRAY_2, 
+    textColor: VOID_COLORS.GRAY_3 
   },
   { 
     id: 'web-eng-2',
     title: "WEB ENGINEERING", 
-    bgColor: VOID_GRAY_3, 
-    textColor: VOID_GRAY_2 
+    bgColor: VOID_COLORS.GRAY_3, 
+    textColor: VOID_COLORS.GRAY_2 
   },
   { 
     id: 'game-eng-1',
     title: "GAME ENGINEERING", 
-    bgColor: VOID_GRAY_4, 
-    textColor: VOID_GRAY_1 
+    bgColor: VOID_COLORS.GRAY_4, 
+    textColor: VOID_COLORS.GRAY_1 
   },
   { 
     id: 'game-eng-2',
     title: "GAME ENGINEERING", 
-    bgColor: VOID_BLACK, 
-    textColor: VOID_WHITE 
+    bgColor: VOID_COLORS.BLACK, 
+    textColor: VOID_COLORS.WHITE 
   },
 ];
 
