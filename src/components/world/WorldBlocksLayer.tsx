@@ -44,6 +44,7 @@ export const WorldBlocksLayer = () => {
               top: `${block.y}vh`,
               transform: `translateY(${translateY}px)`,
               background: block.color,
+              opacity: 0.5,
               boxShadow: "0 5px 10px rgba(0,0,0,0.1)",
               willChange: "transform",
             }}
