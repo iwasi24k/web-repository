@@ -74,7 +74,7 @@ const TextTitle = ({
                         h-full
                         origin-left
                         transition-all
-                        duration-800
+                        duration-700
                         ease-out
                         ${active
                             ? "scale-x-100 translate-x-0"
