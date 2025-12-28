@@ -7,7 +7,7 @@ export type HomeSectionData = {
   textColor: string;
 };
 
-export const HOME_SECTIONS_DATA: readonly HomeSectionData[] = [
+export const HOME_SECTIONS_DATA = [
   {
     id: "system",
     title: "GAME SYSTEM",
