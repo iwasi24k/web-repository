@@ -16,9 +16,6 @@ type TopicSectionProps = {
 
   // description props
   title: TextTitleProps;
-  // titleColor?: string;
-  // titleSize?: string;
-  // title: string;
   
   // title props
   descriptionColor?: string;
