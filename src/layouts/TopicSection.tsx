@@ -1,8 +1,5 @@
 import TextBlock, { type TextBlockProps } from "../components/ui/TextBlock";
-import TextTitle, { type TextTitleProps } from "../components/ui/TextTitle";
-
-// x/y は常に「要素中心」を基準とした座標とします
-// そのため translateX(-50%) は常時適用します
+import SubTitle, { type SubTitleProps } from "../components/ui/SubTitle";
 
 type Align = "left" | "center";
 
@@ -12,10 +9,10 @@ type TopicSectionProps = {
   y?: string;
 
   // TextBlockProps for the label
-  label: TextBlockProps;
+  label?: TextBlockProps;
 
   // description props
-  title: TextTitleProps;
+  title?: SubTitleProps;
   
   // title props
   descriptionColor?: string;
@@ -35,18 +32,17 @@ const TopicSection = ({
 
   return (
     <section
-      className={`absolute flex flex-col gap-6 ${
+      className={`absolute flex flex-col gap-5 ${
         isCenter ? "items-center text-center" : "items-start text-left"
       }`}
       style={{
         left: x,
         top: y,
-        transform: "translateX(-50%)",
+        transform: isCenter ? "translateX(-50%)" : "translateX(-0%)",
       }}
     >
-      <TextBlock {...label} />
-
-      <TextTitle {...title} />
+      {label && <TextBlock {...label} />}
+      {title && <SubTitle {...title} />}
 
       <div className="text-base leading-relaxed" style={{ color: descriptionColor }}>
         {description}
