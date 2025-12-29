@@ -64,6 +64,8 @@ const Navigation = () => {
   // ---------------------------------------------------------
   useEffect(() => {
     const currentObservedIds = observedIdsRef.current;
+    entriesRef.current = {};
+    observedIdsRef.current.clear();
 
     // A. IntersectionObserverの初期化
     observerRef.current = new IntersectionObserver(
@@ -105,14 +107,16 @@ const Navigation = () => {
 
       NAV_ITEMS.forEach((item) => {
         const id = item.href.replace("#", "");
-        
-        // まだ監視していないIDのみ処理
-        if (!observedIdsRef.current.has(id)) {
-          const el = document.getElementById(id);
-          if (el) {
+        const el = document.getElementById(id);
+
+        if(el) {
+          if(!observedIdsRef.current.has(id)){
             observer.observe(el);
             observedIdsRef.current.add(id);
           }
+        } else {
+          observedIdsRef.current.delete(id);
+          delete entriesRef.current[id];
         }
       });
     };
@@ -134,6 +138,7 @@ const Navigation = () => {
     return () => {
       observerRef.current?.disconnect();
       mutationObserver.disconnect();
+      entriesRef.current = {};
       currentObservedIds.clear();
     };
   }, []);
