@@ -12,110 +12,169 @@ const NAV_ITEMS = [
 
 const Navigation = () => {
   const [activeId, setActiveId] = useState<string>("");
-
-  // ★修正ポイント1: 全セクションの最新状態を保持するRefを追加
+  
+  // 交差状態を保持するRef
   const entriesRef = useRef<{ [key: string]: IntersectionObserverEntry }>({});
+  // 監視済み要素のIDを記録するSet（重複observe防止用）
+  const observedIdsRef = useRef<Set<string>>(new Set());
+  // IntersectionObserverのインスタンス保持用
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   const isAutoScrollingRef = useRef(false);
   const scrollEndTimerRef = useRef<number | null>(null);
   const clickLockRef = useRef(false);
+  const fallbackTimerRef = useRef<number | null>(null);
 
-  // scrollイベントでスクロール中フラグを管理
+  // ---------------------------------------------------------
+  // 1. スクロールイベントハンドラ (完了検知 & ロック解除)
+  // ---------------------------------------------------------
   useEffect(() => {
     const onScroll = () => {
+      // スクロール中はタイマーをリセットし続ける（デバウンス処理）
       if (scrollEndTimerRef.current !== null) {
         clearTimeout(scrollEndTimerRef.current);
       }
 
+      // スクロール停止とみなすタイマー (100ms静止で停止と判断)
       scrollEndTimerRef.current = window.setTimeout(() => {
         isAutoScrollingRef.current = false;
+        clickLockRef.current = false; // ★改善: スクロール停止に合わせてロック解除
         scrollEndTimerRef.current = null;
+        
+        // フォールバックタイマーが生きていればクリア
+        if (fallbackTimerRef.current !== null) {
+          clearTimeout(fallbackTimerRef.current);
+          fallbackTimerRef.current = null;
+        }
       }, 100);
     };
 
-    window.addEventListener("scroll", onScroll);
+    // ★改善: passiveオプションを追加してパフォーマンス向上
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => {
       window.removeEventListener("scroll", onScroll);
+      if (scrollEndTimerRef.current) clearTimeout(scrollEndTimerRef.current);
+      if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current);
     };
   }, []);
 
-  // IntersectionObserverでセクションの表示状態を監視
+  // ---------------------------------------------------------
+  // 2. IntersectionObserver & MutationObserver (監視ロジック)
+  // ---------------------------------------------------------
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
+    const currentObservedIds = observedIdsRef.current;
 
-        // ★修正ポイント2: 変化があった要素(entries)をMap(entriesRef)に反映・更新する
+    // A. IntersectionObserverの初期化
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        // 常に最新データを更新
         entries.forEach((entry) => {
           entriesRef.current[entry.target.id] = entry;
         });
 
-        // スクロールアニメーション中は自動更新をスキップ
+        // 自動スクロール中は activeId の更新のみスキップ
         if (isAutoScrollingRef.current) return;
 
-        // ★修正ポイント3: Mapに保存された「全てのセクション」の中から判定を行う
-        // これにより、今回変化しなかったセクションも比較対象に含まれるようになります
         const allEntries = Object.values(entriesRef.current);
-        
-        // 画面内に入っている(isIntersecting)ものだけを抽出
         const visibleEntries = allEntries.filter((e) => e.isIntersecting);
 
         if (visibleEntries.length > 0) {
+          // 最も「見えている高さ」が大きい要素を選択
           const bestEntry = visibleEntries.reduce((prev, current) => {
-             // intersectionRatio だと、セクションの高さが違う場合に小さいセクションが勝ちやすいため
-             // 「画面に見えている高さ(intersectionRect.height)」で比較するとより直感的に安定します。
-             // もとのロジック(ratio)がお好みの場合は .intersectionRatio に戻してもOKですが、
-             // .height の方が "一番見えているもの" として自然です。
-             return prev.intersectionRect.height > current.intersectionRect.height
-               ? prev
-               : current;
+            return prev.intersectionRect.height > current.intersectionRect.height
+              ? prev
+              : current;
           });
 
-          // IDが空でないことを確認してからセット
           if (bestEntry.target.id) {
             setActiveId(`#${bestEntry.target.id}`);
           }
         }
       },
       {
-        // 判定精度
-        threshold: Array.from({ length: 11 }, (_, i) => i / 10), // 100分割は重い可能性があるため10分割程度でも十分機能しますが、元のままでも動作はします
-        rootMargin: "-20% 0px -20% 0px", // 上下20%を判定から除外することで、画面中央付近にあるものを優先しやすくする
+        threshold: Array.from({ length: 11 }, (_, i) => i / 10),
+        rootMargin: "-20% 0px -20% 0px",
       }
     );
 
-    NAV_ITEMS.forEach((item) => {
-      // #を除去してIDを取得
-      const id = item.href.replace("#", "");
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
+    // B. 要素を検索して監視を開始する関数
+    const observeTargets = () => {
+      const observer = observerRef.current;
+      if (!observer) return;
+
+      NAV_ITEMS.forEach((item) => {
+        const id = item.href.replace("#", "");
+        
+        // まだ監視していないIDのみ処理
+        if (!observedIdsRef.current.has(id)) {
+          const el = document.getElementById(id);
+          if (el) {
+            observer.observe(el);
+            observedIdsRef.current.add(id);
+          }
+        }
+      });
+    };
+
+    // 初回実行
+    observeTargets();
+
+    // ★改善: MutationObserverでDOMの変化を監視し、遅延読み込み要素に対応
+    const mutationObserver = new MutationObserver(() => {
+      observeTargets();
     });
 
-    return () => observer.disconnect();
+    // body以下のDOM追加・削除を監視
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observerRef.current?.disconnect();
+      mutationObserver.disconnect();
+      currentObservedIds.clear();
+    };
   }, []);
 
+  // ---------------------------------------------------------
+  // 3. クリックハンドラ
+  // ---------------------------------------------------------
   const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
 
     if (clickLockRef.current) return;
-    clickLockRef.current = true;
 
-    // #を除去してターゲット取得
+    // ★改善: デッドロック対策
+    // ロックを掛ける前にターゲットの存在を確認する
     const targetId = href.replace("#", "");
     const target = document.getElementById(targetId);
-    
-    if (!target) return;
 
+    if (!target) {
+      console.warn(`Target element "${targetId}" not found.`);
+      return; // ターゲットがなければロックせずに終了
+    }
+
+    // ここで初めてロック
+    clickLockRef.current = true;
     isAutoScrollingRef.current = true;
-    setActiveId(href);
+    setActiveId(href); // クリック時は即座にアクティブ化
 
     target.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
 
-    setTimeout(() => {
+    // ★改善: フォールバックタイマー
+    // 「すでにその場所にいてスクロールイベントが発生しない」場合などに備え、
+    // 確実にロックを解除するための保険（少し長めに設定）
+    if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current);
+    fallbackTimerRef.current = window.setTimeout(() => {
+      isAutoScrollingRef.current = false;
       clickLockRef.current = false;
-    }, 500);
+    }, 1000);
+
   }, []);
 
   return (
