@@ -1,12 +1,13 @@
 type WorldSectionProps = {
+    id?: string;
     bgColor: string;
     sectionSize?: string;
     children: React.ReactNode;
 };
 
-const WorldSection = ({ bgColor, sectionSize = "min-h-screen", children }: WorldSectionProps) => {
+const WorldSection = ({ id, bgColor, sectionSize = "min-h-screen", children }: WorldSectionProps) => {
   return (
-    <section className={`relative ${sectionSize} overflow-hidden`}>
+    <section id={id} className={`relative ${sectionSize} overflow-hidden scroll-mt-16`}>
       {/* 背景 */}
       <div
         className={`absolute inset-0 z-10`}

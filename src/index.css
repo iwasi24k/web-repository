@@ -26,3 +26,9 @@
     /* body で flex center をしないことで、Layout が正しく広がります */
   }
 }
+
+/* 3. グローバルスタイル */
+/* globals.css */
+html {
+  scroll-behavior: smooth;
+}

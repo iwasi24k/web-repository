@@ -1,4 +1,5 @@
 import TitleLogo from "../components/ui/TitleLogo";
+import Navigation from "../components/ui/Navigation";
 
 const Header = () => {
   return (
@@ -9,9 +10,11 @@ const Header = () => {
         bg-linear-to-b from-black/80 via-black/50 to-transparent
         backdrop-blur-md"
     >
-        <div className="flex items-center h-full px-16">
-            <TitleLogo className="text-3xl" />
-        </div>
+      <div className="grid grid-cols-[auto_1fr_auto] items-center h-full px-24">
+        <TitleLogo className="text-3xl" />
+        <Navigation />
+        <div />
+      </div>
     </header>
   );
 };

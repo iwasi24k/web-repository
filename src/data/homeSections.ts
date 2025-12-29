@@ -28,8 +28,8 @@ export const HOME_SECTIONS_DATA = [
     sectionSize: CUSTOM_SIZE_CLASS,
   },
   {
-    id: "pipeline",
-    title: "DEVELOPMENT PIPELINE",
+    id: "workflow",
+    title: "WORKFLOW",
     bgColor: VOID_COLORS.GRAY_2,
     textColor: VOID_COLORS.GRAY_3,
     sectionSize: CUSTOM_SIZE_CLASS_MAX,
@@ -49,7 +49,7 @@ export const HOME_SECTIONS_DATA = [
     sectionSize: CUSTOM_SIZE_CLASS_MAX,
   },
   {
-    id: "dev-comments",
+    id: "comments",
     title: "DEVELOPER COMMENTS",
     bgColor: VOID_COLORS.BLACK,
     textColor: VOID_COLORS.WHITE,
