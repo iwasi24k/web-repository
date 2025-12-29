@@ -19,6 +19,7 @@ const Home = () => {
       {HOME_SECTIONS_DATA.map((section) => (
         <WorldSection 
           key={section.id} 
+          id={section.id}
           bgColor={section.bgColor} 
           sectionSize={section.sectionSize}
         >

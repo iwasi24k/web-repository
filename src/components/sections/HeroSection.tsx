@@ -2,7 +2,7 @@ import heroImage from '../../assets/test.png';
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen">
+    <section id="top" className="relative h-screen">
       <img
         src={heroImage}
         alt="Hero Background"
