@@ -1,7 +1,7 @@
-const HeroSection = () => {
+const Footer = () => {
   return (
     <div>Hello World</div>
   );
 };
 
-export default HeroSection;
+export default Footer;
