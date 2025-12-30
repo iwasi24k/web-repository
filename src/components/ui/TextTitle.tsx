@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export type TextTitleProps = {
     text: string;
     textColor?: string;
-    textSize?: string;
+    textSize?: string; //ここではclassを使用
 };
 
 const TextTitle = ({

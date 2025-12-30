@@ -1,7 +1,7 @@
 import { VOID_COLORS } from "../../../design/colors";
 import TopicSection from "../../../layouts/TopicSection";
 
-const GameEnginnering = () => {
+const GameEngineering = () => {
     return (
         <TopicSection
           align="left"
@@ -32,4 +32,4 @@ const GameEnginnering = () => {
     );
 };
 
-export default GameEnginnering;
+export default GameEngineering;

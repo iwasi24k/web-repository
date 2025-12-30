@@ -2,7 +2,7 @@ export type TextBlockProps = {
   text: string;
 
   textColor?: string;
-  textSize?: string;
+  textSize?: string; //ここではstyleを使用
   blockColor?: string;
 
   /** テキストとブロックの余白 */

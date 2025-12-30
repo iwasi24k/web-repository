@@ -4,8 +4,8 @@ import { VOID_COLORS } from "../../design/colors";
 import GameSystem from "./game/GameSystem"
 import GameFeatures from "./game/GameFeatures"
 import Workflow from "./development/Workflow"
-import WebEnginnering from "./development/WebEngineering";
-import GameEnginnering from "./development/GameEngineering";
+import WebEngineering from "./development/WebEngineering";
+import GameEngineering from "./development/GameEngineering";
 import DeveloperComments from "./development/DeveloperComments";
 
 const CUSTOM_SIZE_CLASS = "min-h-[100dvh]";
@@ -52,7 +52,7 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.GRAY_3,
     textColor: VOID_COLORS.GRAY_2,
     sectionSize: CUSTOM_SIZE_CLASS_MAX,
-    content: <WebEnginnering />
+    content: <WebEngineering />
   },
   {
     id: "game-eng",
@@ -60,7 +60,7 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.GRAY_4,
     textColor: VOID_COLORS.GRAY_1,
     sectionSize: CUSTOM_SIZE_CLASS_MAX,
-    content: <GameEnginnering />
+    content: <GameEngineering />
   },
   {
     id: "comments",
