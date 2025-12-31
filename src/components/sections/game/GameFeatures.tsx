@@ -1,6 +1,13 @@
 import { VOID_COLORS } from "../../../design/colors";
 import TopicSection from "../../../layouts/TopicSection";
 import Carousel from "../../ui/Carousel"
+import voxelImages1 from "../../../assets/test.png";
+import voxelImages2 from "../../../assets/1.jpg";
+
+const voxelImages = [
+  voxelImages1,
+  voxelImages2,
+];
 
 const GameFeatures = () => {
   return (
@@ -90,10 +97,7 @@ const GameFeatures = () => {
 
       {/* Carousel Component */}
       <Carousel
-          images={[
-              "src/assets/test.png",
-              "src/assets/1.jpg",
-          ]}
+          images={voxelImages}
           className="absolute top-70 left-25"
           width="780px"
           height="480px"
