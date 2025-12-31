@@ -1,10 +1,13 @@
 import { VOID_COLORS } from "../../../design/colors";
 import TopicSection from "../../../layouts/TopicSection";
 import Carousel from "../../ui/Carousel"
-import voxelImages1 from "../../../assets/test.png";
-import voxelImages2 from "../../../assets/1.jpg";
+
+import voxelImages0 from "../../../assets/voxel-void0.png";
+import voxelImages1 from "../../../assets/voxel-void1.png";
+import voxelImages2 from "../../../assets/voxel-void2.png";
 
 const voxelImages = [
+  voxelImages0,
   voxelImages1,
   voxelImages2,
 ];
