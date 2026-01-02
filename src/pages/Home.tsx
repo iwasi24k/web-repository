@@ -7,8 +7,6 @@ import { HOME_SECTIONS_DATA } from "../components/sections/HomeSections";
 // CSS変数定義
 const FOOTER_COLOR = "#0a0a0a";
 
-const TITLE_LEFT_POSITION = "7%";
-
 const Home = () => {
   return (
     <div>
@@ -25,13 +23,12 @@ const Home = () => {
         >
           {/* Title */}
           <div 
-            className="absolute flex flex-col top-[5dvh]"
-            style={{ left: TITLE_LEFT_POSITION }}
+            className="absolute flex flex-col top-[3svh] left-[6vw]"
           >
             <TextTitle 
               text={section.title} 
               textColor={section.textColor} 
-              textSize="text-8xl" 
+              textSize={section.titleSize}
             />
           </div>
 

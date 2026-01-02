@@ -3,20 +3,19 @@ import TopicSection from "../../../layouts/TopicSection";
 
 const DeveloperComments = () => {
     return (
+      <div className="flex flex-col gap-[3svh] pb-[7svh] pt-[20svh] md:gap-0 md:pb-0">
         <TopicSection
           align="left"
-          x="7.5%"
-          y="30dvh"
+          position="pl-[7svw] pr-[7svw] md:pl-0 md:pr-0 md:top-[30dvh] md:left-[7.5dvw]"
           label={{
             text: "Comments",
             textColor: VOID_COLORS.WHITE,
             blockColor: VOID_COLORS.PURPLE,
-            textSize: "0.75rem",
           }}
           title={{
             text: "Comments",
             textColor: VOID_COLORS.WHITE,
-            textSize: "text-2xl",
+            textSize: "text-[3svh] md:text-[3.25dvh]",
           }}
           descriptionColor={VOID_COLORS.WHITE}
           description={
@@ -31,6 +30,7 @@ const DeveloperComments = () => {
             </>
           }
         />
+      </div>
     );
 };
 

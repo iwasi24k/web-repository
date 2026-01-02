@@ -14,22 +14,20 @@ const voxelImages = [
 
 const GameSystem = () => {
     return (
-      <>
+      <div className="flex flex-col gap-[3svh] pb-[7svh] pt-[20svh] md:gap-0 md:pb-0">
         {/* TopicSection: Overview */}
         <TopicSection
         align="left"
-        x="7.5%"
-        y="30dvh"
+        position="pl-[7svw] pr-[7svw] md:pl-0 md:pr-[50dvw] md:top-[30svh] md:left-[7svw]"
         label={{
             text: "About",
             textColor: VOID_COLORS.BLACK,
             blockColor: VOID_COLORS.YELLOW,
-            textSize: "0.85rem",
         }}
         title={{
             text: "About",
             textColor: VOID_COLORS.BLACK,
-            textSize: "text-3xl",
+            textSize: "text-[3svh] md:text-[3.25dvh]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -51,19 +49,40 @@ const GameSystem = () => {
         {/* Carousel Component */}
         <Carousel
             images={voxelImages}
-            className="absolute top-70 left-245"
-            width="780px"
-            height="480px"
-            imageBorderColor={VOID_COLORS.GRAY_3}
-            imageBorderWidth={1.75}
-            imagePadding={7}
-            slideGap={70}
+            
+            // 1. 全体の配置とサイズ (ここでレスポンシブ制御)
+            className="
+                /* モバイル (デフォルト) */
+                relative
+                w-[90vw]
+                aspect-video
+                mx-auto
+                mt-10
+                
+                /* PC (md以上) */
+                md:absolute
+                md:top-[25svh]
+                md:left-[55dvw]
+                md:w-[40vw]
+                md:aspect-[7/4.5]
+            "
+
+            // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
+            // これで md:p-3 などが効くようになります
+            itemClassName="
+                border-black
+                border-[0.1rem] md:border-[0.125rem]
+                p-[0.5rem] md:p-[0.75rem]
+            "
+            
+            // 3. スライド間の隙間
+            // ここを広げすぎると画像の幅が狭くなり、比率が変わって見えるので注意
+            slideGap="10%"
 
             indicatorActiveColor={VOID_COLORS.GRAY_4}
             indicatorInactiveColor={VOID_COLORS.GRAY_1}
         />
-
-      </>
+      </div>
     );
 };
 

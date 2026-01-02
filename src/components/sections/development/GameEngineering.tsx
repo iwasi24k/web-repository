@@ -3,32 +3,34 @@ import TopicSection from "../../../layouts/TopicSection";
 
 const GameEngineering = () => {
     return (
+      <div className="flex flex-col gap-[3svh] pb-[7svh] pt-[20svh] md:gap-0 md:pb-0">
         <TopicSection
           align="left"
-          x="7.5%"
-          y="30dvh"
+          position="pl-[7svw] pr-[7svw] md:pl-0 md:pr-0 md:top-[30dvh] md:left-[7.5dvw]"
           label={{
-            text: "Technology Stack",
+            text: "????",
             textColor: VOID_COLORS.WHITE,
             blockColor: VOID_COLORS.PURPLE,
-            textSize: "0.85rem",
           }}
           title={{
-            text: "Technology Stack",
+            text: "??????",
             textColor: VOID_COLORS.WHITE,
-            textSize: "text-3xl",
+            textSize: "text-[3svh] md:text-[3.25dvh]",
           }}
           descriptionColor={VOID_COLORS.WHITE}
           description={
             <>
               <p className="mb-4">
-                言語/API: C++ / DirectX11 <br />
-                開発環境: Visual Studio 2022 <br />
-                ツール: Git, GitHub, GitHub Actions (CI/CD)
+                Voxel Voidは、リアルでも派手でもない、抽象的で研ぎ澄まされた3D体験を目指しています。<br />
+              </p>
+              <p className="-mt-1">
+                「単一ブロックのVoxel感×白黒Voidの静寂×変動する足場」が三位一体となり、他にない"ミニマルで緊張感のある立体空間"が特徴です。<br />
+                シンプルでありながら奥行のある世界観とそれを支える独自構造を大切に制作しておりますので、ぜひその空気感を楽しんでいただければ幸いです。
               </p>
             </>
           }
         />
+      </div>
     );
 };
 

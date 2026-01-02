@@ -183,7 +183,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className="flex justify-center gap-14 text-base tracking-wide">
+    <nav className="flex justify-center gap-[3vw] max-w-full px-4">
       {NAV_ITEMS.map((item) => {
         const isActive = activeId === item.href;
 
@@ -194,6 +194,9 @@ const Navigation = () => {
             onClick={(e) => handleClick(e, item.href)}
             className={`
               relative py-2 transition-all duration-300 ease-in-out
+              text-[1.7svh]
+              whitespace-nowrap
+              tracking-wide
               ${
                 isActive
                   ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,1)]"
@@ -204,7 +207,7 @@ const Navigation = () => {
             {item.label}
             <span
               className={`
-                absolute bottom-0 left-0 h-0.5 w-full bg-white shadow-[0_0_8px_white]
+                absolute bottom-0 left-0 h-[0.2dvh] w-full bg-white shadow-[0_0_8px_white]
                 transition-all duration-300 ease-in-out
                 ${isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
               `}

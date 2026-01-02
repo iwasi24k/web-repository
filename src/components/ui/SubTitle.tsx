@@ -20,12 +20,8 @@ const SubTitle = ({
 
             {/* 下線 */}
             <div
-                className="mt-3 h-px relative"
-                style={{
-                    backgroundColor: textColor,
-                    width: "120%",
-                    left: "-2.5%",
-                }}
+                className="mt-[1svh] h-px relative w-[120%] left-[-2.5%]"
+                style={{ backgroundColor: textColor }}
             />
         </div>
     );

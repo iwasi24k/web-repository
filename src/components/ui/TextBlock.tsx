@@ -2,50 +2,40 @@ export type TextBlockProps = {
   text: string;
 
   textColor?: string;
-  textSize?: string; //ここではstyleを使用
+  textSize?: string;
   blockColor?: string;
 
   /** テキストとブロックの余白 */
-  paddingX?: string;
-  paddingY?: string;
-
-  /** 強制サイズ（未指定なら自動） */
-  blockSize?: string;
+  padding?: string;
 };
 
 const TextBlock = ({
   text,
 
   textColor = "#fff",
-  textSize = "1rem",
+  textSize = "text-[1.5svh]",
   blockColor = "transparent",
 
-  paddingX = "1.25em",
-  paddingY = "0.25em",
+  padding = "px-2 py-[0.5svh]",
 
-  blockSize,
 }: TextBlockProps) => {
   return (
     <div
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
+      className={`
+        inline-flex 
+        items-center
+        justify-center
 
-        fontSize: textSize,
-        color: textColor,
-        backgroundColor: blockColor,
+        ${textSize}
 
-        width: blockSize,
-        height: blockSize,
+        min-w-fit
+        min-h-fit
+        ${padding}
 
-        minWidth: "fit-content",
-        minHeight: "fit-content",
-
-        padding: `${paddingY} ${paddingX}`,
-        boxSizing: "border-box",
-        whiteSpace: "nowrap",
-      }}
+        box-border
+        whitespace-nowrap
+      `}
+      style={{color: textColor, backgroundColor:blockColor}}
     >
       {text}
     </div>
