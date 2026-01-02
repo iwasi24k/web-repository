@@ -11,7 +11,7 @@ type Block = {
 // ブロック生成関数（widthは外部から渡す）
 const createBlocks = (count: number, width: number): Block[] => {
   return Array.from({ length: count }, () => {
-    const size = Math.min(width * (Math.random() * 0.02 + 0.02), 70); // 最大サイズ 40px
+    const size = Math.min(width * (Math.random() * 0.02 + 0.02), 70); // 最大サイズ 70px
     return {
       x: Math.random() * 100,
       y: Math.random() * 180 - 100,
