@@ -4,17 +4,13 @@ const SLIDE_DURATION = 500;
 
 type CarouselProps = {
   images: string[];
-  
-  // 親コンテナへのクラス（位置、サイズ、アスペクト比など）
+  /** 親コンテナへのクラス（位置、サイズなど）。指定がない場合の高さ確保に aspect-video が適用されます */
   className?: string;
-
-  // 画像を囲む枠のクラス（ボーダーの太さ、色、パディングなど）
-  // "border-2 border-black p-2" のように指定可能になります
+  /** 各スライドの枠のスタイル（ボーダー、パディング等） */
   itemClassName?: string;
-
-  // スライド間の隙間（こちらは計算が必要なため style で扱いますが、%指定などで調整）
+  /** スライド間の隙間 (例: "1rem", "10%"). calc() で計算されるため、CSS単位を含む文字列を指定してください */
   slideGap?: string;
-
+  /** 自動スライドの間隔(ms)。0を指定すると停止します */
   autoSlideInterval?: number;
   indicatorActiveColor?: string;
   indicatorInactiveColor?: string;
@@ -23,10 +19,7 @@ type CarouselProps = {
 const Carousel = ({
   images,
   className = "",
-  
-  // デフォルトのスタイルをTailwindクラスで定義
-  itemClassName = "border-[0.0625rem] border-black p-2", 
-  
+  itemClassName = "border-[0.0625rem] border-black p-2",
   slideGap = "1rem",
   autoSlideInterval = 4000,
   indicatorActiveColor = "#1f2937",
@@ -40,7 +33,6 @@ const Carousel = ({
 
   const startX = useRef<number | null>(null);
   const viewportRef = useRef<HTMLDivElement | null>(null);
-
   const hasMultipleImages = images.length > 1;
 
   const slideTo = useCallback(
@@ -66,10 +58,15 @@ const Carousel = ({
     setDragOffset(0);
   };
 
+  // 対策1: 自動スライドロジックの復活
   useEffect(() => {
-    if (!hasMultipleImages || isDragging || isSliding) return;
-    const timer = window.setInterval(() => slideTo(1), autoSlideInterval);
-    return () => clearInterval(timer);
+    if (!hasMultipleImages || isDragging || isSliding || autoSlideInterval <= 0) return;
+    
+    const timer = window.setInterval(() => {
+      slideTo(1);
+    }, autoSlideInterval);
+
+    return () => window.clearInterval(timer);
   }, [autoSlideInterval, hasMultipleImages, isDragging, isSliding, slideTo]);
 
   const onStart = (x: number) => {
@@ -91,6 +88,7 @@ const Carousel = ({
     setIsDragging(false);
     if (rect) {
       const diff = x - startX.current;
+      // 20%以上スワイプしたらスライド
       if (Math.abs(diff) > rect.width * 0.2) {
         slideTo(diff > 0 ? -1 : 1);
       }
@@ -109,16 +107,15 @@ const Carousel = ({
   ];
 
   return (
-    // widthやstyleプロパティを排除し、classNameのみを受け入れるように整理
     <div className={`flex flex-col gap-[3svh] ${className}`}>
       <div
         ref={viewportRef}
-        // aspectRatioのデフォルトを削除し、親のクラス指定に委ねる（指定なければdivの自然な振る舞い）
-        // ただしスライドの構造上、親かここにaspect指定がないと高さが潰れる可能性があるため、呼び出し側で必ずaspectを指定してください
-        className="relative overflow-hidden select-none touch-pan-y w-full h-full"
+        // 対策4: フォールバックとして aspect-video を指定。親で aspect-auto 等を上書き可能。
+        className="relative overflow-hidden select-none touch-pan-y w-full aspect-video"
         onMouseDown={(e) => onStart(e.clientX)}
         onMouseMove={(e) => onMove(e.clientX)}
         onMouseUp={(e) => onEnd(e.clientX)}
+        // 対策2: マウスが離れた際の処理を復活
         onMouseLeave={(e) => isDragging && onEnd(e.clientX)}
         onTouchStart={(e) => onStart(e.touches[0].clientX)}
         onTouchMove={(e) => onMove(e.touches[0].clientX)}
@@ -139,15 +136,16 @@ const Carousel = ({
               }}
             >
               <div
-                // ここで渡された itemClassName を適用します
                 className={`h-full ${itemClassName}`}
                 style={{
-                  // Gapの計算だけはstyleで行う
+                  // 対策5: slideGap の安全な適用
                   width: `calc(100% - ${slideGap})`,
                 }}
               >
                 <img
                   src={images[imgIndex]}
+                  // 対策3: alt 属性の追加
+                  alt={`Slide ${imgIndex + 1}`}
                   draggable={false}
                   className="w-full h-full object-cover pointer-events-none"
                 />
@@ -158,11 +156,16 @@ const Carousel = ({
       </div>
 
       {hasMultipleImages && (
-        <div className="flex justify-center items-center gap-2">
+        <div className="flex justify-center items-center gap-2" role="tablist">
           {images.map((_, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => jumpTo(i)}
+              // 対策3: aria 属性の追加
+              role="tab"
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={i === index ? "true" : "false"}
               style={{
                 backgroundColor:
                   i === index

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 type Block = {
   x: number;
@@ -8,56 +8,82 @@ type Block = {
   color: string;
 };
 
-const createBlocks = (count: number): Block[] => {
-  return Array.from({ length: count }, () => ({
-    x: Math.random() * 100,
-    y: Math.random() * 180 - 100,
-    size: window.innerWidth * (Math.random() * 0.02 + 0.02),
-    depth: Math.random() * 0.8 + 0.2,
-    color: `hsl(0, 0%, ${Math.random() * 60 + 20}%)`,
-  }));
+// ブロック生成関数（widthは外部から渡す）
+const createBlocks = (count: number, width: number): Block[] => {
+  return Array.from({ length: count }, () => {
+    const size = Math.min(width * (Math.random() * 0.02 + 0.02), 70); // 最大サイズ 40px
+    return {
+      x: Math.random() * 100,
+      y: Math.random() * 180 - 100,
+      size,
+      depth: Math.random() * 0.8 + 0.2,
+      color: `hsl(0,0%,${Math.random() * 60 + 20}%)`,
+    };
+  });
 };
 
 export const WorldBlocksLayer = () => {
-  const [blocks, setBlocks] = useState<Block[]>(() => createBlocks(30));
+  // SSR対応：初期幅は固定値1024を使用
+  const initialWidth = typeof window !== "undefined" ? window.innerWidth : 1024;
+  const [blocks, setBlocks] = useState<Block[]>(() => createBlocks(30, initialWidth));
   const [scrollY, setScrollY] = useState(0);
 
-  const getBreakpoint = () => {
-    const w = window.innerWidth;
-    if (w < 640) return "sm";
-    if (w < 1024) return "md";
+  const lastBpRef = useRef<string>("lg");
+  const lastDprRef = useRef<number>(
+    typeof window !== "undefined" ? window.devicePixelRatio : 1
+  );
+
+  const getBreakpoint = (width: number) => {
+    if (width < 640) return "sm";
+    if (width < 1024) return "md";
     return "lg";
   };
 
+  // Resize & block regeneration
   useEffect(() => {
-    let lastBp = getBreakpoint();
-    let lastDpr = window.devicePixelRatio;
-
-    const onResize = () => {
-      const bp = getBreakpoint();
+    const updateBlocks = () => {
+      if (typeof window === "undefined") return; // 念のため
+      const width = window.innerWidth;
+      const bp = getBreakpoint(width);
       const dpr = window.devicePixelRatio;
 
-      if (bp === lastBp && dpr === lastDpr) return;
-
-      lastBp = bp;
-      lastDpr = dpr;
-      setBlocks(createBlocks(30));
+      if (bp !== lastBpRef.current || dpr !== lastDprRef.current) {
+        lastBpRef.current = bp;
+        lastDprRef.current = dpr;
+        setBlocks(createBlocks(30, width));
+      }
     };
+
+    let ticking = false;
+    const onResize = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateBlocks();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    updateBlocks(); // 初回クライアントマウント時
 
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  // Scroll tracking
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (typeof window === "undefined") return;
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <div className="fixed inset-0 z-20 overflow-hidden pointer-events-none">
       {blocks.map((block, index) => {
         const translateY = scrollY * block.depth * 0.2;
+        const opacity = 0.2 + 0.2 * block.depth; // 遠いブロックは薄く
 
         return (
           <div
@@ -67,12 +93,12 @@ export const WorldBlocksLayer = () => {
               width: block.size,
               height: block.size,
               left: `${block.x}vw`,
-              top: `${block.y}svh`,
-              transform: `translateY(${translateY}px)`,
+              top: `${block.y}vh`,
+              transform: `translate3d(0, ${translateY}px, 0)`,
               background: block.color,
-              opacity: 0.4,
+              opacity,
               boxShadow: "0 5px 10px rgba(0,0,0,0.1)",
-              willChange: "transform",
+              willChange: "transform, opacity",
             }}
           />
         );
