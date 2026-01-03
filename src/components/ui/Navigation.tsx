@@ -181,7 +181,7 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
                 
                 ${isOpen 
                   ? "duration-400 ease-out opacity-100 translate-y-0" 
-                  : "duration-0 ease-in opacity-0 translate-y-2 md:opacity-100 md:translate-y-0"}
+                  : "duration-10 ease-in opacity-0 translate-y-2 md:opacity-100 md:translate-y-0"}
 
                 ${isActive 
                   ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,1)]" 
