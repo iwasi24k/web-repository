@@ -15,6 +15,13 @@
   --font-display: "Orbitron", sans-serif;
 
   --header-h: 10svh;
+
+  --nav-mobile-bg: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-void-gray-2) 100%, transparent) 0%,
+      color-mix(in srgb, var(--color-void-gray-3) 100%, transparent) 50%,
+      color-mix(in srgb, var(--color-void-gray-4) 100%, transparent) 100%
+  );
 }
 
 /* 2. 基本のリセット */
