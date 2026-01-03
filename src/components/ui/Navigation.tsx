@@ -155,7 +155,6 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
           fixed inset-0 z-60 flex flex-col items-start text-left px-[10dvw] justify-center gap-8
           bg-(image:--nav-mobile-bg) md:bg-none
           
-          /* 背景のフェード設定 (400ms) */
           transition-all duration-400 ease-out
           ${isOpen 
             ? "opacity-100 visible" 
