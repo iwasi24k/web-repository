@@ -7,7 +7,7 @@ type WorldSectionProps = {
 
 const WorldSection = ({ id, bgColor, sectionSize = "min-h-screen", children }: WorldSectionProps) => {
   return (
-    <section id={id} className={`relative ${sectionSize} overflow-hidden scroll-mt-16`}>
+    <section id={id} className={`relative ${sectionSize} overflow-hidden scroll-mt-[calc(var(--header-h)*0.8)]`}>
       {/* 背景 */}
       <div
         className={`absolute inset-0 z-10`}

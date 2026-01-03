@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export type TextTitleProps = {
     text: string;
     textColor?: string;
-    textSize?: string; //ここではclassを使用
+    textSize?: string;
 };
 
 const TextTitle = ({
@@ -62,13 +62,7 @@ const TextTitle = ({
             </h1>
 
             {/* 下線 */}
-            <div
-                className="mt-5 h-0.5 relative overflow-hidden"
-                style={{
-                    width: "120%",
-                    left: "-2.5%",
-                }}
-            >
+            <div className="mt-[1svh] h-px md:h-0.5 relative overflow-hidden w-[115%] left-[-2.5%]">
                 <div
                     className={`
                         h-full

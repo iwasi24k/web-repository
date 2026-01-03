@@ -13,6 +13,8 @@
   --color-void-gray-4: #333333;
 
   --font-display: "Orbitron", sans-serif;
+
+  --header-h: 10svh;
 }
 
 /* 2. 基本のリセット */

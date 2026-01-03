@@ -5,8 +5,7 @@ type Align = "left" | "center";
 
 type TopicSectionProps = {
   align?: Align;
-  x?: string;
-  y?: string;
+  position: string;
 
   // TextBlockProps for the label
   label?: TextBlockProps;
@@ -17,34 +16,34 @@ type TopicSectionProps = {
   // title props
   descriptionColor?: string;
   description: React.ReactNode;
+
+  textSize?: string;
 };
 
 const TopicSection = ({
   align = "center",
-  x = "50%",
-  y = "0",
+  position,
   label,
   title,
   descriptionColor = "#fff",
   description,
+  textSize = "text-[1.75svh] md:text-[1.6dvh]",
 }: TopicSectionProps) => {
   const isCenter = align === "center";
 
   return (
     <section
-      className={`absolute flex flex-col gap-5 ${
-        isCenter ? "items-center text-center" : "items-start text-left"
-      }`}
-      style={{
-        left: x,
-        top: y,
-        transform: isCenter ? "translateX(-50%)" : "translateX(-0%)",
-      }}
+      className={`
+        md:absolute
+        flex flex-col gap-[2dvh]
+         ${position} 
+         ${isCenter ? "items-center text-center -translate-x-1/2" : "items-start text-left"}
+      `}
     >
       {label && <TextBlock {...label} />}
       {title && <SubTitle {...title} />}
 
-      <div className="text-base leading-relaxed" style={{ color: descriptionColor }}>
+      <div className={`${textSize} leading-relaxed`} style={{ color: descriptionColor }}>
         {description}
       </div>
     </section>
