@@ -30,10 +30,20 @@ const Carousel = ({
   const [dragOffset, setDragOffset] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-
+  
+  const timerRef = useRef<number | null>(null);
   const startX = useRef<number | null>(null);
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const hasMultipleImages = images.length > 1;
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current !== null) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+    };
+  }, []);
 
   const slideTo = useCallback(
     (dir: number) => {
@@ -42,7 +52,7 @@ const Carousel = ({
       setIsSliding(true);
       setOffset(dir * 100);
 
-      window.setTimeout(() => {
+      timerRef.current = window.setTimeout(() => {
         setIndex((i) => (i + dir + images.length) % images.length);
         setOffset(0);
         setIsSliding(false);

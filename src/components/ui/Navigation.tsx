@@ -10,105 +10,133 @@ const NAV_ITEMS = [
   { label: "COMMENTS", href: "#comments" },
 ];
 
-// HeaderからisOpenとsetIsOpenを受け取るように変更
-const Navigation = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: boolean) => void }) => {
+type NavigationProps = {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+};
+
+const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
   const [activeId, setActiveId] = useState<string>("");
 
-  // --- 以前のロジック (Ref群) ---
   const entriesRef = useRef<{ [key: string]: IntersectionObserverEntry }>({});
-  const observedIdsRef = useRef<Set<string>>(new Set());
-  const observerRef = useRef<IntersectionObserver | null>(null);
   const isAutoScrollingRef = useRef(false);
   const scrollEndTimerRef = useRef<number | null>(null);
   const clickLockRef = useRef(false);
   const fallbackTimerRef = useRef<number | null>(null);
 
+  // 1. スクロール停止検知ロジック
   useEffect(() => {
-    const onScroll = () => {
-      if (scrollEndTimerRef.current !== null) clearTimeout(scrollEndTimerRef.current);
+    const handleScroll = () => {
+      if (scrollEndTimerRef.current !== null) {
+        window.clearTimeout(scrollEndTimerRef.current);
+      }
       scrollEndTimerRef.current = window.setTimeout(() => {
         isAutoScrollingRef.current = false;
         clickLockRef.current = false;
-        scrollEndTimerRef.current = null;
-        if (fallbackTimerRef.current !== null) {
-          clearTimeout(fallbackTimerRef.current);
-          fallbackTimerRef.current = null;
-        }
       }, 100);
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollEndTimerRef.current) window.clearTimeout(scrollEndTimerRef.current);
+    };
   }, []);
 
+  // 2. IntersectionObserver の設定
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entriesRef.current[entry.target.id] = entry;
-        });
-        if (isAutoScrollingRef.current) return;
-        const allEntries = Object.values(entriesRef.current);
-        const visibleEntries = allEntries.filter((e) => e.isIntersecting);
-        if (visibleEntries.length > 0) {
-          const bestEntry = visibleEntries.reduce((prev, current) => 
-            prev.intersectionRect.height > current.intersectionRect.height ? prev : current
-          );
-          if (bestEntry.target.id) setActiveId(`#${bestEntry.target.id}`);
-        }
-      },
-      { threshold: Array.from({ length: 11 }, (_, i) => i / 10), rootMargin: "-20% 0px -20% 0px" }
-    );
-
-    const observeTargets = () => {
-      NAV_ITEMS.forEach((item) => {
-        const id = item.href.replace("#", "");
-        const el = document.getElementById(id);
-        if (el && !observedIdsRef.current.has(id)) {
-          observerRef.current?.observe(el);
-          observedIdsRef.current.add(id);
-        }
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // 1. 各エントリーの状態を最新に更新
+      entries.forEach((entry) => {
+        entriesRef.current[entry.target.id] = entry;
       });
+
+      // 2. クリックによる自動スクロール中は IntersectionObserver による activeId 更新を無視
+      if (isAutoScrollingRef.current) return;
+
+      // 3. 交差している（画面内にある）要素を抽出
+      const visibleEntries = Object.values(entriesRef.current).filter(
+        (entry) => entry.isIntersecting
+      );
+
+      if (visibleEntries.length > 0) {
+        // 最も交差面積が大きい、または上部にある要素を選択
+        const bestEntry = visibleEntries.reduce((prev, curr) => {
+          return curr.intersectionRatio > prev.intersectionRatio ? curr : prev;
+        });
+
+        if (bestEntry) {
+          setActiveId(`#${bestEntry.target.id}`);
+        }
+      }
     };
 
-    observeTargets();
-    const mutationObserver = new MutationObserver(() => observeTargets());
+    const observer = new IntersectionObserver(observerCallback, {
+      // thresholdを細かくすることで、少しの移動でも検知可能にする
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+      // 画面中央付近で判定するように調整
+      rootMargin: "-10% 0px -70% 0px",
+    });
+
+    // 監視の開始
+    const ids = NAV_ITEMS.map((item) => item.href.replace("#", ""));
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    // DOMの変化を監視して動的にターゲットを再取得
+    const mutationObserver = new MutationObserver(() => {
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    });
+
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      observerRef.current?.disconnect();
+      observer.disconnect();
       mutationObserver.disconnect();
     };
-  }, []);
+  }, []); // 基本は空で良いが、内部ロジックを整理
 
+  // 3. クリックハンドラ
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      if (clickLockRef.current) return;
+
+      const targetId = href.replace("#", "");
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      setIsOpen(false);
+      clickLockRef.current = true;
+      isAutoScrollingRef.current = true;
+      setActiveId(href);
+
+      // スムーズスクロール
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // 保険のタイマー
+      if (fallbackTimerRef.current) window.clearTimeout(fallbackTimerRef.current);
+      fallbackTimerRef.current = window.setTimeout(() => {
+        isAutoScrollingRef.current = false;
+        clickLockRef.current = false;
+      }, 1000);
+    },
+    [setIsOpen]
+  );
+
+  // 4. スクロールロック
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    document.body.style.overflow = isOpen ? "hidden" : "";
   }, [isOpen]);
-
-  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    if (clickLockRef.current) return;
-
-    const targetId = href.replace("#", "");
-    const target = document.getElementById(targetId);
-    if (!target) return;
-
-    setIsOpen(false); // メニューを閉じる合図を親に送る
-    clickLockRef.current = true;
-    isAutoScrollingRef.current = true;
-    setActiveId(href);
-
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    if (fallbackTimerRef.current) clearTimeout(fallbackTimerRef.current);
-    fallbackTimerRef.current = window.setTimeout(() => {
-      isAutoScrollingRef.current = false;
-      clickLockRef.current = false;
-    }, 1000);
-  }, [setIsOpen]); // setIsOpenを依存関係に追加
 
   return (
     <>
-      {/* スマホ用ハンバーガーボタン */}
+      {/* ハンバーガーボタン（スマホ専用） */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-3 right-4 z-70 p-3 md:hidden group"
@@ -121,21 +149,18 @@ const Navigation = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: 
         </div>
       </button>
 
-      {/* メニュー本体 */}
+      {/* ナビゲーションメニュー */}
       <nav
         className={`
           fixed inset-0 z-60 bg-black/95 flex flex-col items-center justify-center gap-8
           transition-all duration-500
           ${isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}
-
-          /* PC: 常に表示 */
           md:static md:inset-auto md:bg-transparent md:flex-row md:opacity-100 md:visible md:pointer-events-auto
-          md:justify-center md:gap-[3vw] md:max-w-full md:px-4 md:h-full md:items-center
+          md:justify-center md:gap-[3vw] md:max-w-full md:px-4 md:h-full md:items-center md:pb-[1.2vh]
         `}
       >
         {NAV_ITEMS.map((item) => {
           const isActive = activeId === item.href;
-
           return (
             <a
               key={item.href}
@@ -145,18 +170,18 @@ const Navigation = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: 
                 relative py-2 transition-all duration-300 ease-in-out
                 text-xl font-normal md:text-[1.7svh]
                 whitespace-nowrap tracking-wide
-                ${
-                  isActive
-                    ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,1)]"
-                    : "text-white/60 hover:text-white hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]"
-                }
+                will-change-[transform,filter] transform-gpu
+                ${isActive 
+                  ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,1)]" 
+                  : "text-white/60 hover:text-white hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]"}
               `}
             >
               {item.label}
               <span
                 className={`
-                  absolute bottom-0 left-0 h-[0.2dvh] w-full bg-white shadow-[0_0_8px_white]
+                  absolute -bottom-1 left-0 h-[0.2dvh] w-full bg-white shadow-[0_0_8px_white]
                   transition-all duration-300 ease-in-out
+                  will-change-transform backface-hidden
                   ${isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
                 `}
               />
