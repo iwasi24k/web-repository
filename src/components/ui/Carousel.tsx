@@ -227,21 +227,48 @@ const Carousel = ({
   const startX = useRef<number | null>(null);
   const hasMultipleImages = images.length > 1;
 
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // タイマーを安全にクリアする関数
+  const clearTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
   // 次のスライドへ
   const nextSlide = useCallback(() => {
     if (isSliding || !hasMultipleImages) return;
+
+    clearTimer(); // 既存のタイマーがあればクリア
     setIsSliding(true);
     setIndex((prev) => (prev + 1) % images.length);
-    setTimeout(() => setIsSliding(false), SLIDE_DURATION);
-  }, [images.length, isSliding, hasMultipleImages]);
+
+    timerRef.current = setTimeout(() => {
+      setIsSliding(false);
+      timerRef.current = null;
+    }, SLIDE_DURATION);
+  }, [images.length, isSliding, hasMultipleImages, clearTimer]);
 
   // 前のスライドへ
   const prevSlide = useCallback(() => {
     if (isSliding || !hasMultipleImages) return;
+
+    clearTimer();
     setIsSliding(true);
     setIndex((prev) => (prev - 1 + images.length) % images.length);
-    setTimeout(() => setIsSliding(false), SLIDE_DURATION);
-  }, [images.length, isSliding, hasMultipleImages]);
+
+    timerRef.current = setTimeout(() => {
+      setIsSliding(false);
+      timerRef.current = null;
+    }, SLIDE_DURATION);
+  }, [images.length, isSliding, hasMultipleImages, clearTimer]);
+
+  // コンポーネントのアンマウント時にクリーンアップ
+  useEffect(() => {
+    return () => clearTimer();
+  }, [clearTimer]);
 
   const jumpTo = (target: number) => {
     if (isSliding || target === index) return;
