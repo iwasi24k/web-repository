@@ -5,7 +5,7 @@ type Align = "left" | "center";
 
 type TopicSectionProps = {
   align?: Align;
-  position: string;
+  position?: string;
 
   // TextBlockProps for the label
   label?: TextBlockProps;
@@ -27,14 +27,14 @@ const TopicSection = ({
   title,
   descriptionColor = "#fff",
   description,
-  textSize = "text-[1.75svh] md:text-[1.6dvh]",
+  textSize = "text-[2svh] md:text-[1.8dvh]",
 }: TopicSectionProps) => {
   const isCenter = align === "center";
 
   return (
     <section
       className={`
-        md:absolute
+        ${position ? "md:absolute" : ""}
         flex flex-col gap-[2dvh]
          ${position} 
          ${isCenter ? "items-center text-center -translate-x-1/2" : "items-start text-left"}

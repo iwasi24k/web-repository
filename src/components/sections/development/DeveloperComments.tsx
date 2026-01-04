@@ -3,10 +3,9 @@ import TopicSection from "../../../layouts/TopicSection";
 
 const DeveloperComments = () => {
     return (
-      <div className="flex flex-col gap-[3svh] pb-[7svh] pt-[20svh] md:gap-0 md:pb-0">
+      <div className="flex flex-col gap-[5svh] pl-[7svw] pr-[7svw] pb-[7svh] pt-[20svh] md:gap-[10vh] md:pl-[7vw] md:pr-0 md:pt-[30vh] md:pb-0">
         <TopicSection
           align="left"
-          position="pl-[7svw] pr-[7svw] md:pl-0 md:pr-0 md:top-[30dvh] md:left-[7.5dvw]"
           label={{
             text: "Comments",
             textColor: VOID_COLORS.WHITE,

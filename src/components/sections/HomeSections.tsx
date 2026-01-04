@@ -48,7 +48,7 @@ export const HOME_SECTIONS_DATA = [
     titleSize: "text-[5svh] md:text-[9dvh] lg:text-[10dvh]",
     bgColor: VOID_COLORS.GRAY_2,
     textColor: VOID_COLORS.GRAY_3,
-    sectionSize: CUSTOM_SIZE_CLASS_MAX,
+    sectionSize: CUSTOM_SIZE_CLASS,
     content: <Workflow />
   },
   {

@@ -14,14 +14,11 @@ const voxelImages = [
 
 const GameFeatures = () => {
   return (
-    <div className="flex flex-col gap-[3svh] pb-[7svh] pt-[20svh] pl-[7svw] pr-[7svw] md:gap-0 md:pb-0 md:pl-0 md:pr-[2vw]">
+    <div className="flex flex-col gap-[3svh] pl-[7svw] pr-[7svw] pb-[7svh] pt-[20svh] md:gap-[1vh] md:pl-[48vw] md:pr-[2vw] md:pt-[25vh] md:pb-0">
+
       {/* TopicSection: Voxel */}
       <TopicSection
       align="left"
-      position="
-        md:top-[26.5dvh]
-        md:left-[50vw]
-      "
       label={{
           text: "Single Block World",
           textColor: VOID_COLORS.WHITE,
@@ -47,10 +44,6 @@ const GameFeatures = () => {
       {/* TopicSection: Void */}
       <TopicSection
       align="left"
-      position="
-        md:top-[48dvh]
-        md:left-[50vw]
-      "
       label={{
           text: "Monochro Color World",
           textColor: VOID_COLORS.WHITE,
@@ -75,10 +68,6 @@ const GameFeatures = () => {
       {/* TopicSection: Field */}
       <TopicSection
       align="left"
-      position="
-        md:top-[72.5dvh]
-        md:left-[50vw]
-      "
       label={{
           text: "Moving Field Structure",
           textColor: VOID_COLORS.WHITE,
