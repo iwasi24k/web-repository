@@ -5,7 +5,7 @@ const DetailBackground = () => {
   return (
     <>
       <div
-        className="absolute inset-0 bg-linear-to-b z-10"
+        className="absolute inset-0 bg-linear-to-b z-0"
         style={{ backgroundColor: VOID_COLORS.GRAY_4 }}
       />
       <BackgroundBlock
