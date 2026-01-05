@@ -13,18 +13,13 @@ type BackgroundBlockProps = {
 const BackgroundBlock = ({
   position,
   size = "w-[5svh] h-[5svh]",
-  rotation,
+  rotation, 
   color,
-  borderColor = VOID_COLORS.WHITE,
+  borderColor,
   borderSize = "border-[1.5px] md:border-[0.25svh]",
   className = "",
 }: BackgroundBlockProps) => {
-  const resolvedBorderColor =
-    borderColor !== undefined
-      ? borderColor
-      : color
-        ? undefined
-        : VOID_COLORS.WHITE;
+  const resolvedBorderColor = borderColor !== undefined ? borderColor : (color ? undefined : VOID_COLORS.WHITE);
 
   return (
     <div

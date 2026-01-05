@@ -5,7 +5,7 @@ const DetailBackground = () => {
   return (
     <>
       <div
-        className="absolute inset-0 bg-linear-to-b -z-10"
+        className="absolute inset-0 bg-linear-to-b z-10"
         style={{ backgroundColor: VOID_COLORS.GRAY_4 }}
       />
       <BackgroundBlock
@@ -19,7 +19,7 @@ const DetailBackground = () => {
       <BackgroundBlock
         position="fixed top-[15svh] md:top-[20vh] left-[75vw] md:left-[83vw]"
         size="w-[150px] h-[150px] md:w-[25vh] md:h-[25vh]"
-        rotation="rotate-[20deg] md:rotate-[-5deg]"
+        rotation="rotate-[20deg] md:-rotate-[5deg]"
         borderSize="border-[2px] md:border-[0.3svh]"
         className="opacity-30 md:opacity-70"
       />
