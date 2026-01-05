@@ -5,6 +5,13 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 
+// Detail Layout and its pages
+import DetailLayout from "./layouts/DetailLayout";
+import GameEngineeringDetails from "./components/sections/development/GameEngineeringDetails";
+import WebEngineeringDetails from "./components/sections/development/WebEngineeringDetails";
+
+// import NotFound from "./pages/NotFound";
+
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -14,15 +21,15 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
 
-      // {
-      //   path: "detail",
-      //   element: <DetailLayout />,
-      //   children: [
-      //     { path: "game", element: <GameDetail /> },
-      //     { path: "web", element: <WebDetail /> },
-      //   ],
-      // },
-      
+      {
+        path: "detail",
+        element: <DetailLayout />,
+        children: [
+          { path: "gameengineering", element: <GameEngineeringDetails /> },
+          { path: "webengineering", element: <WebEngineeringDetails /> },
+        ],
+      },
+
       // { path: "*", element: <NotFound /> },
     ],
   },

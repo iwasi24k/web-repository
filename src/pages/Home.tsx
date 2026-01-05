@@ -3,6 +3,7 @@ import WorldSection from "../components/world/WorldSection";
 import Footer from "../components/sections/Footer";
 import TextTitle from "../components/ui/TextTitle";
 import { HOME_SECTIONS_DATA } from "../components/sections/HomeSections";
+import { WorldBlocksLayer } from "../components/world/WorldBlocksLayer";
 
 // CSS変数定義
 const FOOTER_COLOR = "#0a0a0a";
@@ -10,6 +11,8 @@ const FOOTER_COLOR = "#0a0a0a";
 const Home = () => {
   return (
     <div>
+      <WorldBlocksLayer />
+
       {/* Hero Section */}
       <HeroSection />
 
