@@ -1,17 +1,15 @@
-import type { ReactNode } from "react";
 import Header from "./Header";
 import { WorldBlocksLayer } from "../components/world/WorldBlocksLayer";
+import { Outlet } from "react-router-dom";
 
-interface MainLayoutProps {
-  children: ReactNode;
-}
-
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = () => {
   return (
     <div className="min-h-screen flex flex-col text-void-white font-sans selection:bg-void-purple selection:text-white">
       <WorldBlocksLayer />
 
-      <main className="flex-1 relative">{children}</main>
+      <main className="flex-1 relative">
+        <Outlet />
+      </main>
 
       <Header />
     </div>

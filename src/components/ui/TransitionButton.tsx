@@ -1,20 +1,22 @@
+import { Link } from "react-router-dom";
+import type { CSSProperties } from "react";
+
 type TransitionButtonProps = {
   text: string;
-  href: string;
-  textSize?: string;
+  to: string;
 
+  textSize?: string;
   textColor?: string;
   hoverTextColor?: string;
   bgColor?: string;
   hoverBgColor?: string;
   borderColor?: string;
-
   className?: string;
 };
 
 export default function TransitionButton({
   text,
-  href,
+  to,
   textSize = "text-xs md:text-[1.75svh]",
   textColor = "black",
   hoverTextColor = "white",
@@ -24,8 +26,8 @@ export default function TransitionButton({
   className = "",
 }: TransitionButtonProps) {
   return (
-    <a
-      href={href}
+    <Link
+      to={to}
       className={`
         relative
         inline-flex
@@ -52,20 +54,20 @@ export default function TransitionButton({
           borderColor: borderColor,
           "--h-bg": hoverBgColor,
           "--h-text": hoverTextColor,
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
-      {/* 1. 中心から広がる四角形（■）レイヤー */}
+      {/* 背景レイヤー */}
       <span
         className="
-          absolute 
-          inset-0 
+          absolute
+          inset-0
           m-auto
           w-full
           h-full
-          scale-0 
+          scale-0
           group-hover:scale-100
-          transition-transform 
+          transition-transform
           ease-out
           duration-200
           group-hover:duration-300
@@ -74,22 +76,20 @@ export default function TransitionButton({
         style={{ backgroundColor: "var(--h-bg)" }}
       />
 
-      {/* 2. テキストレイヤー */}
+      {/* テキスト */}
       <span
         className="
-          relative 
-          z-10 
-          transition-colors 
+          relative
+          z-10
+          transition-colors
           ease-out
-          /* 戻る時の速度 */
           duration-200
-          /* ホバー時の速度 */
           group-hover:duration-300
           group-hover:text-(--h-text)
         "
       >
         {text}
       </span>
-    </a>
+    </Link>
   );
 }
