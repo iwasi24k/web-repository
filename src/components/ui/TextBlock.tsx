@@ -17,7 +17,6 @@ const TextBlock = ({
   blockColor = "transparent",
 
   padding = "px-2 py-[0.5svh]",
-
 }: TextBlockProps) => {
   return (
     <div
@@ -35,7 +34,7 @@ const TextBlock = ({
         box-border
         whitespace-nowrap
       `}
-      style={{color: textColor, backgroundColor:blockColor}}
+      style={{ color: textColor, backgroundColor: blockColor }}
     >
       {text}
     </div>

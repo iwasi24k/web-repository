@@ -30,7 +30,7 @@
 //   const [dragOffset, setDragOffset] = useState(0);
 //   const [isSliding, setIsSliding] = useState(false);
 //   const [isDragging, setIsDragging] = useState(false);
-  
+
 //   const timerRef = useRef<number | null>(null);
 //   const startX = useRef<number | null>(null);
 //   const viewportRef = useRef<HTMLDivElement | null>(null);
@@ -71,7 +71,7 @@
 //   // 対策1: 自動スライドロジックの復活
 //   useEffect(() => {
 //     if (!hasMultipleImages || isDragging || isSliding || autoSlideInterval <= 0) return;
-    
+
 //     const timer = window.setInterval(() => {
 //       slideTo(1);
 //     }, autoSlideInterval);
@@ -332,7 +332,9 @@ const Carousel = ({
           className="flex h-full w-full"
           style={{
             transform: `translateX(calc(-${index * 100}% + ${dragOffset}%))`,
-            transition: isDragging ? "none" : `transform ${SLIDE_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)`,
+            transition: isDragging
+              ? "none"
+              : `transform ${SLIDE_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)`,
           }}
         >
           {images.map((img, i) => (
@@ -359,7 +361,10 @@ const Carousel = ({
 
       {/* インジケーター */}
       {hasMultipleImages && (
-        <div className="flex justify-center items-center gap-2 h-3" role="tablist">
+        <div
+          className="flex justify-center items-center gap-2 h-3"
+          role="tablist"
+        >
           {images.map((_, i) => (
             <button
               key={i}
@@ -369,7 +374,8 @@ const Carousel = ({
               aria-label={`Go to slide ${i + 1}`}
               aria-current={i === index ? "true" : "false"}
               style={{
-                backgroundColor: i === index ? indicatorActiveColor : indicatorInactiveColor,
+                backgroundColor:
+                  i === index ? indicatorActiveColor : indicatorInactiveColor,
               }}
               className={`rounded-sm transition-all duration-300 ${
                 i === index ? "w-3 h-3" : "w-2 h-2"

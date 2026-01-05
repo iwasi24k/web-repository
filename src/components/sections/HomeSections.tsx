@@ -1,9 +1,9 @@
 import type React from "react";
 import { VOID_COLORS } from "../../design/colors";
 
-import GameSystem from "./game/GameSystem"
-import GameFeatures from "./game/GameFeatures"
-import Workflow from "./development/Workflow"
+import GameSystem from "./game/GameSystem";
+import GameFeatures from "./game/GameFeatures";
+import Workflow from "./development/Workflow";
 import WebEngineering from "./development/WebEngineering";
 import GameEngineering from "./development/GameEngineering";
 import DeveloperComments from "./development/DeveloperComments";
@@ -31,7 +31,7 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.WHITE,
     textColor: VOID_COLORS.BLACK,
     sectionSize: CUSTOM_SIZE_CLASS,
-    content: <GameSystem />
+    content: <GameSystem />,
   },
   {
     id: "features",
@@ -40,7 +40,7 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.GRAY_1,
     textColor: VOID_COLORS.GRAY_4,
     sectionSize: CUSTOM_SIZE_CLASS,
-    content: <GameFeatures />
+    content: <GameFeatures />,
   },
   {
     id: "workflow",
@@ -49,7 +49,7 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.GRAY_2,
     textColor: VOID_COLORS.GRAY_3,
     sectionSize: CUSTOM_SIZE_CLASS,
-    content: <Workflow />
+    content: <Workflow />,
   },
   {
     id: "web-eng",
@@ -58,7 +58,7 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.GRAY_3,
     textColor: VOID_COLORS.GRAY_2,
     sectionSize: CUSTOM_SIZE_CLASS_MAX,
-    content: <WebEngineering />
+    content: <WebEngineering />,
   },
   {
     id: "game-eng",
@@ -67,7 +67,7 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.GRAY_4,
     textColor: VOID_COLORS.GRAY_1,
     sectionSize: CUSTOM_SIZE_CLASS_MAX,
-    content: <GameEngineering />
+    content: <GameEngineering />,
   },
   {
     id: "comments",
@@ -76,6 +76,6 @@ export const HOME_SECTIONS_DATA = [
     bgColor: VOID_COLORS.BLACK,
     textColor: VOID_COLORS.WHITE,
     sectionSize: CUSTOM_SIZE_CLASS_MIN,
-    content: <DeveloperComments />
+    content: <DeveloperComments />,
   },
 ] as const;

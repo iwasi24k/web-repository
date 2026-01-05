@@ -39,7 +39,8 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (scrollEndTimerRef.current) window.clearTimeout(scrollEndTimerRef.current);
+      if (scrollEndTimerRef.current)
+        window.clearTimeout(scrollEndTimerRef.current);
     };
   }, []);
 
@@ -56,7 +57,7 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
 
       // 3. 交差している（画面内にある）要素を抽出
       const visibleEntries = Object.values(entriesRef.current).filter(
-        (entry) => entry.isIntersecting
+        (entry) => entry.isIntersecting,
       );
 
       if (visibleEntries.length > 0) {
@@ -120,13 +121,14 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
 
       // 保険のタイマー
-      if (fallbackTimerRef.current) window.clearTimeout(fallbackTimerRef.current);
+      if (fallbackTimerRef.current)
+        window.clearTimeout(fallbackTimerRef.current);
       fallbackTimerRef.current = window.setTimeout(() => {
         isAutoScrollingRef.current = false;
         clickLockRef.current = false;
       }, 1000);
     },
-    [setIsOpen]
+    [setIsOpen],
   );
 
   // 4. スクロールロック
@@ -143,9 +145,15 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
         aria-label="Toggle menu"
       >
         <div className="flex flex-col gap-1.5 w-8">
-          <span className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`} />
-          <span className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span
+            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}
+          />
+          <span
+            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`}
+          />
+          <span
+            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
+          />
         </div>
       </button>
 
@@ -156,9 +164,11 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
           bg-(image:--nav-mobile-bg) md:bg-none
           
           transition-all duration-400 ease-out
-          ${isOpen 
-            ? "opacity-100 visible" 
-            : "opacity-0 invisible pointer-events-none"}
+          ${
+            isOpen
+              ? "opacity-100 visible"
+              : "opacity-0 invisible pointer-events-none"
+          }
 
           md:static md:inset-auto md:bg-transparent md:flex-row md:opacity-100 md:visible md:pointer-events-auto
           md:justify-center md:gap-[3vw] md:max-w-full md:px-4 md:h-full md:items-center md:pb-[1.2vh]
@@ -172,20 +182,24 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
               href={item.href}
               onClick={(e) => handleClick(e, item.href)}
               // 開くときは遅延あり、閉じるときは '0ms' で即時開始
-              style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }} 
+              style={{ transitionDelay: isOpen ? `${index * 50}ms` : "0ms" }}
               className={`
                 relative py-2 transition-all 
                 text-xl font-bold md:font-normal md:text-[1.7svh]
                 whitespace-nowrap tracking-widest md:tracking-wider
                 transform-gpu
                 
-                ${isOpen 
-                  ? "duration-400 ease-out opacity-100 translate-y-0" 
-                  : "duration-10 ease-in opacity-0 translate-y-2 md:opacity-100 md:translate-y-0"}
+                ${
+                  isOpen
+                    ? "duration-400 ease-out opacity-100 translate-y-0"
+                    : "duration-10 ease-in opacity-0 translate-y-2 md:opacity-100 md:translate-y-0"
+                }
 
-                ${isActive 
-                  ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,1)]" 
-                  : "text-white/60 hover:text-white hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]"}
+                ${
+                  isActive
+                    ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,1)]"
+                    : "text-white/60 hover:text-white hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]"
+                }
               `}
             >
               <span className="md:hidden mr-[0.6em]">■</span>

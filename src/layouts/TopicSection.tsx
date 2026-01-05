@@ -12,7 +12,7 @@ type TopicSectionProps = {
 
   // description props
   title?: SubTitleProps;
-  
+
   // title props
   descriptionColor?: string;
   description: React.ReactNode;
@@ -43,7 +43,10 @@ const TopicSection = ({
       {label && <TextBlock {...label} />}
       {title && <SubTitle {...title} />}
 
-      <div className={`${textSize} leading-relaxed`} style={{ color: descriptionColor }}>
+      <div
+        className={`${textSize} leading-relaxed`}
+        style={{ color: descriptionColor }}
+      >
         {description}
       </div>
     </section>
@@ -51,5 +54,3 @@ const TopicSection = ({
 };
 
 export default TopicSection;
-
-

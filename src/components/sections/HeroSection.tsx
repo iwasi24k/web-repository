@@ -1,4 +1,4 @@
-import heroImage from '../../assets/voxel-void0.png';
+import heroImage from "../../assets/voxel-void0.png";
 
 const HeroSection = () => {
   return (
