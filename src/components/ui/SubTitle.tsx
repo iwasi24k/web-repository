@@ -1,30 +1,30 @@
 export type SubTitleProps = {
-    text: string;
-    textColor?: string;
-    textSize?: string;
+  text: string;
+  textColor?: string;
+  textSize?: string;
 };
 
 const SubTitle = ({
-    text,
-    textColor = "#fff",
-    textSize = "text-2xl",
+  text,
+  textColor = "#fff",
+  textSize = "text-2xl",
 }: SubTitleProps) => {
-    return (
-        <div className="inline-flex flex-col">
-            <h1
-                className={`font-bold tracking-wide ${textSize}`}
-                style={{ color: textColor }}
-            >
-                {text}
-            </h1>
+  return (
+    <div className="inline-flex flex-col">
+      <h1
+        className={`font-bold tracking-wide ${textSize}`}
+        style={{ color: textColor }}
+      >
+        {text}
+      </h1>
 
-            {/* 下線 */}
-            <div
-                className="mt-[1svh] h-px relative w-[120%] left-[-2.5%]"
-                style={{ backgroundColor: textColor }}
-            />
-        </div>
-    );
+      {/* 下線 */}
+      <div
+        className="mt-[1svh] h-px relative w-[120%] left-[-2.5%]"
+        style={{ backgroundColor: textColor }}
+      />
+    </div>
+  );
 };
 
 export default SubTitle;

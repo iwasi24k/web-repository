@@ -1,6 +1,6 @@
 import HeroSection from "../components/sections/HeroSection";
 import WorldSection from "../components/world/WorldSection";
-import Footer from "../components/sections/Footer"
+import Footer from "../components/sections/Footer";
 import TextTitle from "../components/ui/TextTitle";
 import { HOME_SECTIONS_DATA } from "../components/sections/HomeSections";
 
@@ -15,25 +15,22 @@ const Home = () => {
 
       {/* Dynamic Sections Loop */}
       {HOME_SECTIONS_DATA.map((section) => (
-        <WorldSection 
-          key={section.id} 
+        <WorldSection
+          key={section.id}
           id={section.id}
-          bgColor={section.bgColor} 
+          bgColor={section.bgColor}
           sectionSize={section.sectionSize}
         >
           {/* Title */}
-          <div 
-            className="absolute flex flex-col top-[3svh] left-[6vw]"
-          >
-            <TextTitle 
-              text={section.title} 
-              textColor={section.textColor} 
+          <div className="absolute flex flex-col top-[3svh] left-[6vw]">
+            <TextTitle
+              text={section.title}
+              textColor={section.textColor}
               textSize={section.titleSize}
             />
           </div>
 
           {section.content}
-
         </WorldSection>
       ))}
 
@@ -46,5 +43,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

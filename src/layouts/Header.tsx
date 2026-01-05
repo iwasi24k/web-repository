@@ -10,13 +10,16 @@ const Header = () => {
       className={`
         fixed top-0 left-0 right-0 z-50
         transition-all duration-300 backdrop-blur-md
-        ${isOpen 
-          ? "h-dvh bg-black" 
-          : "h-16 md:h-(--header-h) bg-linear-to-b from-black/80 via-black/40 to-transparent"
+        ${
+          isOpen
+            ? "h-dvh bg-black"
+            : "h-16 md:h-(--header-h) bg-linear-to-b from-black/80 via-black/40 to-transparent"
         }
       `}
     >
-      <div className={`grid grid-cols-[auto_1fr_auto] items-center px-[4vw] ${isOpen ? "h-16" : "h-full"}`}>
+      <div
+        className={`grid grid-cols-[auto_1fr_auto] items-center px-[4vw] ${isOpen ? "h-16" : "h-full"}`}
+      >
         <TitleLogo className="text-xl md:text-[3svh] z-60" />
 
         {/* 状態と関数をPropsとして渡す */}

@@ -25,12 +25,14 @@ const createBlocks = (count: number, width: number): Block[] => {
 export const WorldBlocksLayer = () => {
   // SSR対応：初期幅は固定値1024を使用
   const initialWidth = typeof window !== "undefined" ? window.innerWidth : 1024;
-  const [blocks, setBlocks] = useState<Block[]>(() => createBlocks(30, initialWidth));
+  const [blocks, setBlocks] = useState<Block[]>(() =>
+    createBlocks(30, initialWidth),
+  );
   const [scrollY, setScrollY] = useState(0);
 
   const lastBpRef = useRef<string>("lg");
   const lastDprRef = useRef<number>(
-    typeof window !== "undefined" ? window.devicePixelRatio : 1
+    typeof window !== "undefined" ? window.devicePixelRatio : 1,
   );
 
   const getBreakpoint = (width: number) => {

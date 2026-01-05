@@ -8,7 +8,7 @@ type TransitionButtonProps = {
   bgColor?: string;
   hoverBgColor?: string;
   borderColor?: string;
-  
+
   className?: string;
 };
 
@@ -45,13 +45,15 @@ export default function TransitionButton({
         ${borderColor ? "border-[1.5px] md:border-[0.25svh]" : ""}
         ${className}
       `}
-      style={{
-        color: textColor,
-        backgroundColor: bgColor,
-        borderColor: borderColor,
-        "--h-bg": hoverBgColor,
-        "--h-text": hoverTextColor,
-      } as React.CSSProperties}
+      style={
+        {
+          color: textColor,
+          backgroundColor: bgColor,
+          borderColor: borderColor,
+          "--h-bg": hoverBgColor,
+          "--h-text": hoverTextColor,
+        } as React.CSSProperties
+      }
     >
       {/* 1. 中心から広がる四角形（■）レイヤー */}
       <span
@@ -73,7 +75,7 @@ export default function TransitionButton({
       />
 
       {/* 2. テキストレイヤー */}
-      <span 
+      <span
         className="
           relative 
           z-10 
