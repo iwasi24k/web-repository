@@ -64,6 +64,7 @@ const GameSystem = () => {
                 xl:top-[15vw]
                 xl:left-[55vw]
                 xl:w-[40vw]
+                xl:mt-0
                 xl:aspect-[7/4.5]
             "
         // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
