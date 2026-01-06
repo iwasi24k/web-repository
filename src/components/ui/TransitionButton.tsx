@@ -71,7 +71,7 @@ export default function TransitionButton({
           ease-out
           duration-200
           group-hover:duration-300
-          -z-10
+          z-0
         "
         style={{ backgroundColor: "var(--h-bg)" }}
       />

@@ -11,7 +11,6 @@ import DeveloperComments from "./development/DeveloperComments";
 // 各Sectionの高さ
 const CUSTOM_SIZE_CLASS = "min-h-[100svh]";
 const CUSTOM_SIZE_CLASS_MIN = "min-h-[80svh]";
-const CUSTOM_SIZE_CLASS_MAX = "min-h-[200svh]";
 
 export type HomeSectionData = {
   id: string;
@@ -57,7 +56,7 @@ export const HOME_SECTIONS_DATA = [
     titleSize: "text-[5svh] md:text-[9dvh] lg:text-[10dvh]",
     bgColor: VOID_COLORS.GRAY_3,
     textColor: VOID_COLORS.GRAY_2,
-    sectionSize: CUSTOM_SIZE_CLASS_MAX,
+    sectionSize: CUSTOM_SIZE_CLASS,
     content: <WebEngineering />,
   },
   {
@@ -66,7 +65,7 @@ export const HOME_SECTIONS_DATA = [
     titleSize: "text-[5svh] md:text-[9dvh] lg:text-[10dvh]",
     bgColor: VOID_COLORS.GRAY_4,
     textColor: VOID_COLORS.GRAY_1,
-    sectionSize: CUSTOM_SIZE_CLASS_MAX,
+    sectionSize: CUSTOM_SIZE_CLASS,
     content: <GameEngineering />,
   },
   {

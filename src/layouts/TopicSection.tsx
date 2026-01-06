@@ -27,7 +27,7 @@ const TopicSection = ({
   title,
   descriptionColor = "#fff",
   description,
-  textSize = "text-[2svh] md:text-[1.8dvh]",
+  textSize = "text-[2svh] xl:text-[1.8dvh]",
 }: TopicSectionProps) => {
   const isCenter = align === "center";
 
