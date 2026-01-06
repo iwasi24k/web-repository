@@ -1,35 +1,30 @@
-import { useSyncExternalStore } from "react";
 import heroImage from "../../assets/voxel-void0.png";
 
-// 1. 外部システム（window）の値を購読する関数
-const subscribe = (callback: () => void) => {
-  window.addEventListener("resize", callback);
-  window.addEventListener("orientationchange", callback); // スマホの回転対応
-  return () => {
-    window.removeEventListener("resize", callback);
-    window.removeEventListener("orientationchange", callback);
-  };
+/**
+ * コンポーネントの外で一度だけ計算します。
+ * window.screen は「ブラウザの枠」ではなく「モニターの物理サイズ」を返すため、
+ * ウィンドウをどう動かしても、この値は変わりません。
+ */
+const getDeviceFixedRatio = (): string => {
+  if (typeof window !== "undefined") {
+    // 物理モニターの幅 / 高さ を返す
+    // 例: 1920 / 1080
+    return `${window.screen.width} / ${window.screen.height}`;
+  }
+  // サーバーサイド（ビルド時）のフォールバック
+  return "16 / 9";
 };
 
-// 2. 現在の値を「ブラウザ」から取得する関数
-const getSnapshot = () => `${window.screen.width} / ${window.screen.height}`;
-
-// 3. 「サーバー」での初期値（SSR時に使われる）
-const getServerSnapshot = () => "16 / 9";
+// モジュール読み込み時に一度だけ実行され、以降固定される
+const FIXED_ASPECT_RATIO = getDeviceFixedRatio();
 
 const HeroSection = () => {
-  // windowを直接使うのではなく、Reactの管理下で「同期」させる
-  const aspectRatio = useSyncExternalStore(
-    subscribe,
-    getSnapshot,
-    getServerSnapshot
-  );
-
   return (
     <section
       id="top"
       className="bg-black w-full overflow-hidden"
-      style={{ aspectRatio }}
+      // ここで固定された比率を適用
+      style={{ aspectRatio: FIXED_ASPECT_RATIO }}
     >
       <img
         src={heroImage}
