@@ -25,8 +25,8 @@ const router = createBrowserRouter([
         path: "detail",
         element: <DetailLayout />,
         children: [
-          { path: "gameengineering", element: <GameEngineeringDetails /> },
-          { path: "webengineering", element: <WebEngineeringDetails /> },
+          { path: "game-engineering", element: <GameEngineeringDetails /> },
+          { path: "web-engineering", element: <WebEngineeringDetails /> },
         ],
       },
 
