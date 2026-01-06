@@ -13,10 +13,10 @@ const TextBlock = ({
   text,
 
   textColor = "#fff",
-  textSize = "text-[1.5svh]",
+  textSize = "text-[8px] md:text-[1.2vw] xl:text-[0.8vw]",
   blockColor = "transparent",
 
-  padding = "px-2 py-[0.5svh]",
+  padding = "px-2 py-[3px] xl:px-[1vw] xl:py-[0.4vw] 2xl:px-[0.8vw] 2xl:py-[0.3vw]",
 }: TextBlockProps) => {
   return (
     <div

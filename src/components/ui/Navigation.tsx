@@ -141,7 +141,7 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       {/* ハンバーガーボタン（スマホ専用） */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-3 right-4 z-70 p-3 md:hidden group"
+        className="fixed top-3 right-4 z-70 p-3 xl:hidden group"
         aria-label="Toggle menu"
       >
         <div className="flex flex-col gap-1.5 w-8">
@@ -160,8 +160,8 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       {/* ナビゲーションメニュー */}
       <nav
         className={`
-          fixed inset-0 z-60 flex flex-col items-start text-left px-[10dvw] justify-center gap-8
-          bg-(image:--nav-mobile-bg) md:bg-none
+          fixed inset-0 z-60 flex flex-col items-start text-left px-[10vw] justify-center gap-8
+          bg-(image:--nav-mobile-bg) xl:bg-none
           
           transition-all duration-400 ease-out
           ${
@@ -170,8 +170,8 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
               : "opacity-0 invisible pointer-events-none"
           }
 
-          md:static md:inset-auto md:bg-transparent md:flex-row md:opacity-100 md:visible md:pointer-events-auto
-          md:justify-center md:gap-[3vw] md:max-w-full md:px-4 md:h-full md:items-center md:pb-[1.2vh]
+          xl:static xl:inset-auto xl:bg-transparent xl:flex-row xl:opacity-100 xl:visible xl:pointer-events-auto
+          xl:justify-center xl:gap-[3vw] xl:max-w-full md:px-4 xl:h-full xl:items-center xl:pb-[1.1vw]
         `}
       >
         {NAV_ITEMS.map((item, index) => {
@@ -185,14 +185,14 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
               style={{ transitionDelay: isOpen ? `${index * 50}ms` : "0ms" }}
               className={`
                 relative py-2 transition-all 
-                text-xl font-bold md:font-normal md:text-[1.7svh]
-                whitespace-nowrap tracking-widest md:tracking-wider
+                text-xl font-bold xl:font-normal xl:text-[12px] 2xl:text-[14px]
+                whitespace-nowrap tracking-widest xl:tracking-wider
                 transform-gpu
                 
                 ${
                   isOpen
                     ? "duration-400 ease-out opacity-100 translate-y-0"
-                    : "duration-10 ease-in opacity-0 translate-y-2 md:opacity-100 md:translate-y-0"
+                    : "duration-10 ease-in opacity-0 translate-y-2 xl:opacity-100 xl:translate-y-0"
                 }
 
                 ${
@@ -202,16 +202,16 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
                 }
               `}
             >
-              <span className="md:hidden mr-[0.6em]">■</span>
+              <span className="xl:hidden mr-[0.6em]">■</span>
               {item.label}
               <span
                 className={`
                   absolute -bottom-1 
                   left-0 
-                  h-[0.2dvh] 
-                  w-[70dvw] md:w-full 
+                  h-0.5 
+                  w-[70vw] xl:w-full 
                   bg-white shadow-[0_0_8px_white]
-                  md:transition-all md:duration-300 md:ease-in-out
+                  xl:transition-all xl:duration-300 xl:ease-in-out
                   ${isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
                 `}
               />

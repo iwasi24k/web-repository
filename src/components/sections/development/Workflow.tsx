@@ -5,7 +5,7 @@ import gitImage from "../../../assets/gitFlow2.svg";
 
 const Workflow = () => {
   return (
-    <div className="flex flex-col gap-[5svh] pl-[7svw] pr-[7svw] pb-[7svh] pt-[20svh] md:gap-[10vh] md:pl-[7vw] md:pr-0 md:pt-[30vh] md:pb-0">
+    <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[5vw] xl:pt-[13vw] xl:pb-[5vw]">
       <TopicSection
         align="left"
         label={{
@@ -16,7 +16,7 @@ const Workflow = () => {
         title={{
           text: "Git Workflow",
           textColor: VOID_COLORS.WHITE,
-          textSize: "text-[3svh] md:text-[3.25dvh]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.WHITE}
         description={
@@ -37,17 +37,10 @@ const Workflow = () => {
         }
       />
       <img
-        className="md:ml-[8vw] md:-mt-[3svh] md:mb-[6svh] w-150 md:w-180"
+        className="xl:ml-[7vw] w-[85vw] xl:w-[40vw]"
         src={gitImage}
         alt="Gitフロー図"
       />
-      {/* <TransitionButton 
-          text="詳細ページへ →" 
-          href="/about"
-          textColor={VOID_COLORS.WHITE}
-          hoverTextColor={VOID_COLORS.WHITE}
-          className="ml-[55vw] mb:ml-[80vw] mt-8 md:mt-0 md:mb-[7vh]"
-        /> */}
     </div>
   );
 };

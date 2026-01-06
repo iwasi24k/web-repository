@@ -25,7 +25,7 @@ const Home = () => {
           sectionSize={section.sectionSize}
         >
           {/* Title */}
-          <div className="absolute flex flex-col top-[3svh] left-[6vw]">
+          <div className="absolute flex flex-col top-[3vw] left-[6vw] xl:top-[1vw]">
             <TextTitle
               text={section.title}
               textColor={section.textColor}
@@ -38,7 +38,7 @@ const Home = () => {
       ))}
 
       {/* Footer */}
-      <WorldSection bgColor={FOOTER_COLOR} sectionSize="min-h-[30dvh]">
+      <WorldSection bgColor={FOOTER_COLOR} sectionSize="min-h-[15vw]">
         <Footer />
       </WorldSection>
     </div>

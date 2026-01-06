@@ -10,7 +10,7 @@ const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
 
 const GameFeatures = () => {
   return (
-    <div className="flex flex-col gap-[3svh] pl-[7svw] pr-[7svw] pb-[7svh] pt-[20svh] md:gap-[1vh] md:pl-[48vw] md:pr-[2vw] md:pt-[25vh] md:pb-0">
+    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[2vw] xl:pl-[48vw] xl:pr-[2vw] xl:pt-[13vw] xl:pb-[5vw]">
       {/* TopicSection: Voxel */}
       <TopicSection
         align="left"
@@ -22,7 +22,7 @@ const GameFeatures = () => {
         title={{
           text: "Single Block World",
           textColor: VOID_COLORS.BLACK,
-          textSize: "text-[3svh] md:text-[3.25dvh]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -48,7 +48,7 @@ const GameFeatures = () => {
         title={{
           text: "Monochro Color World",
           textColor: VOID_COLORS.BLACK,
-          textSize: "text-[3svh] md:text-[3.25dvh]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -74,7 +74,7 @@ const GameFeatures = () => {
         title={{
           text: "Moving Field Structure",
           textColor: VOID_COLORS.BLACK,
-          textSize: "text-[3svh] md:text-[3.25dvh]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -94,21 +94,21 @@ const GameFeatures = () => {
         images={voxelImages}
         // 1. 全体の配置とサイズ (ここでレスポンシブ制御)
         className="
-                hidden md:flex 
-                
-                /* PC (md以上) */
-                md:absolute
-                md:top-[30svh]
-                md:left-[5dvw]
-                md:w-[40vw]
-                md:aspect-[7/4.5]
+                hidden 
+                xl:flex
+
+                xl:absolute
+                xl:top-[17vw]
+                xl:left-[5vw]
+                xl:w-[40vw]
+                xl:aspect-[7/4.5]
             "
         // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
         // これで md:p-3 などが効くようになります
         itemClassName="
                 border-black
-                border-[0.1rem] md:border-[0.125rem]
-                p-[0.5rem] md:p-[0.75rem]
+                border-[0.1rem] xl:border-[0.125rem]
+                p-[0.5rem] xl:p-[0.75rem]
             "
         // 3. スライド間の隙間
         // ここを広げすぎると画像の幅が狭くなり、比率が変わって見えるので注意

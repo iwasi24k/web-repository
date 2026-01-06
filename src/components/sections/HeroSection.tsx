@@ -1,12 +1,22 @@
 import heroImage from "../../assets/voxel-void0.png";
 
 const HeroSection = () => {
+  const style: React.CSSProperties = {
+    width: "100%",
+    aspectRatio: `${window.screen.width} / ${window.screen.height}`,
+    height: "auto",
+  };
+
   return (
-    <section id="top" className="relative h-screen">
+    <section
+      id="top"
+      className="w-full overflow-hidden bg-black"
+      style={style}
+    >
       <img
         src={heroImage}
         alt="Hero Background"
-        className="absolute inset-0 z-10 object-cover w-full h-full"
+        className="block w-full h-full object-cover"
       />
     </section>
   );

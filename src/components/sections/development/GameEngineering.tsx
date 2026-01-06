@@ -3,7 +3,7 @@ import TopicSection from "../../../layouts/TopicSection";
 
 const GameEngineering = () => {
   return (
-    <div className="flex flex-col gap-[5svh] pl-[7svw] pr-[7svw] pb-[7svh] pt-[20svh] md:gap-[10vh] md:pl-[7vw] md:pr-0 md:pt-[30vh] md:pb-0">
+    <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[5vw] xl:pt-[13vw] xl:pb-[5vw]">
       <TopicSection
         align="left"
         label={{
@@ -14,7 +14,7 @@ const GameEngineering = () => {
         title={{
           text: "??????",
           textColor: VOID_COLORS.WHITE,
-          textSize: "text-[3svh] md:text-[3.25dvh]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.WHITE}
         description={
