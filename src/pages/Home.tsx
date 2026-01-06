@@ -3,7 +3,7 @@ import WorldSection from "../components/world/WorldSection";
 import Footer from "../components/sections/Footer";
 import TextTitle from "../components/ui/TextTitle";
 import { HOME_SECTIONS_DATA } from "../components/sections/HomeSections";
-import { WorldBlocksLayer } from "../components/world/WorldBlocksLayer";
+import WorldBlocksLayer from "../components/world/WorldBlocksLayer";
 
 // CSS変数定義
 const FOOTER_COLOR = "#0a0a0a";
@@ -25,7 +25,7 @@ const Home = () => {
           sectionSize={section.sectionSize}
         >
           {/* Title */}
-          <div className="absolute flex flex-col top-[3svh] left-[6vw]">
+          <div className="absolute flex flex-col top-[3vw] left-[6vw] xl:top-[1vw]">
             <TextTitle
               text={section.title}
               textColor={section.textColor}
@@ -38,7 +38,7 @@ const Home = () => {
       ))}
 
       {/* Footer */}
-      <WorldSection bgColor={FOOTER_COLOR} sectionSize="min-h-[30dvh]">
+      <WorldSection bgColor={FOOTER_COLOR} sectionSize="min-h-[15vw]">
         <Footer />
       </WorldSection>
     </div>

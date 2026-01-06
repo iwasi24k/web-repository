@@ -27,7 +27,7 @@ const TopicSection = ({
   title,
   descriptionColor = "#fff",
   description,
-  textSize = "text-[2svh] xl:text-[1.8dvh]",
+  textSize = "text-[3.5vw] md:text-[2vw] xl:text-[1vw] 2xl:text-[0.9vw]",
 }: TopicSectionProps) => {
   const isCenter = align === "center";
 
@@ -35,9 +35,9 @@ const TopicSection = ({
     <section
       className={`
         ${position ? "md:absolute" : ""}
-        flex flex-col gap-[2dvh]
-         ${position} 
-         ${isCenter ? "items-center text-center -translate-x-1/2" : "items-start text-left"}
+        flex flex-col gap-[2vw] xl:gap-[1vw]
+        ${position} 
+        ${isCenter ? "items-center text-center -translate-x-1/2" : "items-start text-left"}
       `}
     >
       {label && <TextBlock {...label} />}

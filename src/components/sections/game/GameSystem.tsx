@@ -10,11 +10,11 @@ const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
 
 const GameSystem = () => {
   return (
-    <div className="flex flex-col gap-[3svh] pb-[7svh] pt-[20svh] md:gap-0 md:pb-0">
+    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] md:pt-[25vw] xl:pt-[13vw] xl:gap-[10vw] xl:pb-[35vw]">
       {/* TopicSection: Overview */}
       <TopicSection
         align="left"
-        position="pl-[7svw] pr-[7svw] md:pl-0 md:pr-[50dvw] md:top-[30svh] md:left-[7svw]"
+        position="pl-[7vw] pr-[7vw] xl:pr-[40vw]"
         label={{
           text: "About",
           textColor: VOID_COLORS.BLACK,
@@ -23,7 +23,7 @@ const GameSystem = () => {
         title={{
           text: "About",
           textColor: VOID_COLORS.BLACK,
-          textSize: "text-[3svh] md:text-[3.25dvh]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -51,26 +51,27 @@ const GameSystem = () => {
         images={voxelImages}
         // 1. 全体の配置とサイズ (ここでレスポンシブ制御)
         className="
-                /* モバイル (デフォルト) */
                 relative
                 w-[90vw]
                 aspect-video
                 mx-auto
-                mt-10
-                
-                /* PC (md以上) */
-                md:absolute
-                md:top-[25svh]
-                md:left-[55dvw]
-                md:w-[40vw]
-                md:aspect-[7/4.5]
+                mt-[10vw]
+
+                md:w-[80vw]
+                md:mt-[45vw]
+
+                xl:absolute
+                xl:top-[15vw]
+                xl:left-[55vw]
+                xl:w-[40vw]
+                xl:aspect-[7/4.5]
             "
         // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
         // これで md:p-3 などが効くようになります
         itemClassName="
                 border-black
-                border-[0.1rem] md:border-[0.125rem]
-                p-[0.5rem] md:p-[0.75rem]
+                border-[0.1rem] xl:border-[0.125rem]
+                p-[0.5rem] xl:p-[0.75rem]
             "
         // 3. スライド間の隙間
         // ここを広げすぎると画像の幅が狭くなり、比率が変わって見えるので注意

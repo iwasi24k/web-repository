@@ -12,20 +12,20 @@ const Header = () => {
         transition-all duration-300 backdrop-blur-md
         ${
           isOpen
-            ? "h-dvh bg-black"
-            : "h-16 md:h-(--header-h) bg-linear-to-b from-black/80 via-black/40 to-transparent"
+            ? "h-full bg-black"
+            : "h-0 xl:h-[5vw] bg-linear-to-b from-black/80 via-black/40 to-transparent"
         }
       `}
     >
       <div
-        className={`grid grid-cols-[auto_1fr_auto] items-center px-[4vw] ${isOpen ? "h-16" : "h-full"}`}
+        className={`grid grid-cols-[auto_1fr_auto] items-center px-[4vw] ${isOpen ? "h-0" : "h-full"}`}
       >
-        <TitleLogo className="text-xl md:text-[3svh] z-60" />
+        <TitleLogo className="hidden xl:block xl:text-[1.5vw] xl:z-60" />
 
         {/* 状態と関数をPropsとして渡す */}
         <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
 
-        <div className="w-8 md:w-0" />
+        <div className="hidden xl:block xl:w-0" />
       </div>
     </header>
   );

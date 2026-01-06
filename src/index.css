@@ -14,7 +14,7 @@
 
   --font-display: "Orbitron", sans-serif;
 
-  --header-h: 10svh;
+  /* --header-h: 5vw; */
 
   --nav-mobile-bg: linear-gradient(
     to bottom,
@@ -39,10 +39,14 @@
 /* 3. グローバルスタイル */
 /* globals.css */
 html {
-  scroll-behavior: smooth;
-
-  /* iOS Safariでのテキスト自動調整を防止 */
   -webkit-text-size-adjust: 100%;
-  /* その他のブラウザ用 */
   text-size-adjust: 100%;
 }
+
+/* PCのみ smooth */
+@media (hover: hover) and (pointer: fine) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+

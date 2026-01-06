@@ -17,7 +17,7 @@ type TransitionButtonProps = {
 export default function TransitionButton({
   text,
   to,
-  textSize = "text-xs md:text-[1.75svh]",
+  textSize = "text-xs md:text-[1.75vw]",
   textColor = "black",
   hoverTextColor = "white",
   bgColor = "transparent",
@@ -44,7 +44,7 @@ export default function TransitionButton({
         active:scale-95
 
         ${textSize}
-        ${borderColor ? "border-[1.5px] md:border-[0.25svh]" : ""}
+        ${borderColor ? "border-[1.3px] xl:border-2" : ""}
         ${className}
       `}
       style={
