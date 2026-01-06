@@ -22,7 +22,7 @@ const createBlocks = (count: number, width: number): Block[] => {
   });
 };
 
-export const WorldBlocksLayer = () => {
+const WorldBlocksLayer = () => {
   // SSR対応：初期幅は固定値1024を使用
   const initialWidth = typeof window !== "undefined" ? window.innerWidth : 1024;
   const [blocks, setBlocks] = useState<Block[]>(() =>
@@ -108,3 +108,5 @@ export const WorldBlocksLayer = () => {
     </div>
   );
 };
+
+export default WorldBlocksLayer;
