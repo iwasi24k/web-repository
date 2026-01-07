@@ -23,7 +23,7 @@ const Header = () => {
         <img
           className="hidden xl:block xl:w-[8vw] user-select-none pointer-events-none"
           src={titleLogoImage}
-          alt="title logo"
+          alt="Voxel Void"
         />
 
         {/* 状態と関数をPropsとして渡す */}

@@ -39,7 +39,8 @@ const Workflow = () => {
       <img
         className="xl:ml-[7vw] w-[85vw] xl:w-[40vw] user-select-none pointer-events-none"
         src={gitImage}
-        alt="Gitフロー図"
+        alt=""
+        aria-hidden="true"
       />
       <Gear
         className="absolute -top-[15vw] -right-[25vw] user-select-none pointer-events-none opacity-20 xl:opacity-30"

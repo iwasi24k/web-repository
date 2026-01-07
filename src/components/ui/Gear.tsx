@@ -17,7 +17,8 @@ const Gear = ({
   return (
     <img
       src={gearImage}
-      alt="Gear"
+      alt=""
+      aria-hidden="true"
       style={
         {
           "--gear-duration": `${duration}s`,
