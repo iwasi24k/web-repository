@@ -1,6 +1,6 @@
 import { VOID_COLORS } from "../../../design/colors";
 import TopicSection from "../../../layouts/TopicSection";
-// import TransitionButton from "../../ui/TransitionButton";
+import Gear from "../../ui/Gear";
 import gitImage from "../../../assets/gitFlow2.svg";
 
 const Workflow = () => {
@@ -37,9 +37,15 @@ const Workflow = () => {
         }
       />
       <img
-        className="xl:ml-[7vw] w-[85vw] xl:w-[40vw]"
+        className="xl:ml-[7vw] w-[85vw] xl:w-[40vw] user-select-none pointer-events-none"
         src={gitImage}
         alt="Gitフロー図"
+      />
+      <Gear
+        className="absolute -top-[15vw] -right-[25vw] user-select-none pointer-events-none opacity-20 xl:opacity-30"
+        size="w-[60vw]"
+        duration={50}
+        direction="ccw"
       />
     </div>
   );
