@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TitleLogo from "../components/ui/TitleLogo";
 import Navigation from "../components/ui/Navigation";
+import titleLogoImage from "../assets/TitleLogo.png"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,11 @@ const Header = () => {
       <div
         className={`grid grid-cols-[auto_1fr_auto] items-center px-[4vw] ${isOpen ? "h-0" : "h-full"}`}
       >
-        <TitleLogo className="hidden xl:block xl:text-[1.5vw] xl:z-60" />
+        <img
+          className="hidden xl:block xl:w-[8vw]"
+          src={titleLogoImage}
+          alt="Gitフロー図"
+        />
 
         {/* 状態と関数をPropsとして渡す */}
         <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
