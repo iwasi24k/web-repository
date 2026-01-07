@@ -21,9 +21,9 @@ const Header = () => {
         className={`grid grid-cols-[auto_1fr_auto] items-center px-[4vw] ${isOpen ? "h-0" : "h-full"}`}
       >
         <img
-          className="hidden xl:block xl:w-[8vw]"
+          className="hidden xl:block xl:w-[8vw] user-select-none pointer-events-none"
           src={titleLogoImage}
-          alt="Gitフロー図"
+          alt="Voxel Void"
         />
 
         {/* 状態と関数をPropsとして渡す */}
