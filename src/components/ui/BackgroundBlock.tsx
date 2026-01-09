@@ -12,11 +12,11 @@ type BackgroundBlockProps = {
 
 const BackgroundBlock = ({
   position,
-  size = "w-[5svh] h-[5svh]",
+  size = "w-[5vw] h-[5vw]",
   rotation, 
   color,
   borderColor,
-  borderSize = "border-[1.5px] md:border-[0.25svh]",
+  borderSize = "border-[1.5px] md:border-[0.25vw]",
   className = "",
 }: BackgroundBlockProps) => {
   const resolvedBorderColor = borderColor !== undefined ? borderColor : (color ? undefined : VOID_COLORS.WHITE);
