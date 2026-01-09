@@ -50,3 +50,23 @@ html {
   }
 }
 
+@keyframes scroll-arrow {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(0.6vw);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-scroll-arrow {
+    animation: scroll-arrow 1.8s ease-in-out infinite;
+  }
+}
