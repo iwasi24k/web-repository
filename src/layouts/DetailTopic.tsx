@@ -26,7 +26,7 @@ const DetailTopic = ({
     <section
       className={`
         ${position ? "md:absolute" : ""}
-        flex flex-col gap-[2vw] xl:gap-[1vw]
+        flex flex-col gap-[8vw] xl:gap-[1vw]
         ${position} 
         
       `}
@@ -35,7 +35,7 @@ const DetailTopic = ({
         {title && <DetailTitle {...title} />}
       </div>
       <div
-        className={`${textSize} leading-relaxed ml-[25vw] mr-[25vw]`}
+        className={`${textSize} leading-relaxed ml-[5vw] mr-[5vw] xl:ml-[25vw] xl:mr-[25vw]`}
         style={{ color: descriptionColor }}
       >
         {description}

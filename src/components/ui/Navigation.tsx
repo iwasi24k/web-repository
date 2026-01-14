@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const NAV_ITEMS = [
   { label: "TOP", href: "#top" },
@@ -16,6 +17,9 @@ type NavigationProps = {
 };
 
 const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [activeId, setActiveId] = useState<string>("");
 
   const entriesRef = useRef<{ [key: string]: IntersectionObserverEntry }>({});
@@ -109,6 +113,15 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       if (clickLockRef.current) return;
 
       const targetId = href.replace("#", "");
+
+      // ★ Home 以外なら先に戻る
+      if (location.pathname !== "/") {
+        setIsOpen(false);
+        navigate("/", { state: { scrollTo: targetId } });
+        return;
+      }
+
+      // ↓↓↓ ここからは今まで通り（Home 専用）
       const target = document.getElementById(targetId);
       if (!target) return;
 
@@ -117,10 +130,8 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       isAutoScrollingRef.current = true;
       setActiveId(href);
 
-      // スムーズスクロール
       target.scrollIntoView({ behavior: "smooth", block: "start" });
 
-      // 保険のタイマー
       if (fallbackTimerRef.current)
         window.clearTimeout(fallbackTimerRef.current);
       fallbackTimerRef.current = window.setTimeout(() => {
@@ -128,7 +139,7 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
         clickLockRef.current = false;
       }, 1000);
     },
-    [setIsOpen],
+    [setIsOpen, navigate, location.pathname],
   );
 
   // 4. スクロールロック
