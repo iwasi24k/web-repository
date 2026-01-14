@@ -1,16 +1,16 @@
-export type SubTitleProps = {
+export type DetailTitleProps = {
   text: string;
   textColor?: string;
   textSize?: string;
 };
 
-const SubTitle = ({
+const DetailTitle = ({
   text,
   textColor = "#fff",
   textSize = "text-2xl",
-}: SubTitleProps) => {
+}: DetailTitleProps) => {
   return (
-    <div className="inline-flex flex-col">
+    <div className="inline-flex flex-col items-center">
       <h1
         className={`font-bold tracking-wide ${textSize}`}
         style={{ color: textColor }}
@@ -20,11 +20,11 @@ const SubTitle = ({
 
       {/* 下線 */}
       <div
-        className="mt-2 xl:mt-[0.5vw] h-px relative w-[120%] left-[-2.5%]"
+        className="mt-2 xl:mt-[0.8vw] xl:mb-[1vw] h-px relative w-[80vw]"
         style={{ backgroundColor: textColor }}
       />
     </div>
   );
 };
 
-export default SubTitle;
+export default DetailTitle;
