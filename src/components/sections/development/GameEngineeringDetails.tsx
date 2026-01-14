@@ -3,12 +3,12 @@ import DetailTopic from "../../../layouts/DetailTopic";
 
 const GameEngineeringDetails = () => {
   return (
-    <div className="flex flex-col mx-auto items-center pt-[7vw] pb-[10vw]">
+    <div className="flex flex-col mx-auto items-center pt-[20vw] pb-[20vw] xl:pt-[7vw] xl:pb-[10vw]">
       <DetailTopic
         title={{
-          text: "Game Engineering Details",
+          text: "Game Engineering",
           textColor: VOID_COLORS.WHITE,
-          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2.5vw]",
+          textSize: "text-[30px] md:text-[3.5vw] xl:text-[2.5vw]",
         }}
         descriptionColor={VOID_COLORS.WHITE}
         description={
