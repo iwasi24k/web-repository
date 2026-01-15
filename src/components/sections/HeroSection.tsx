@@ -1,62 +1,36 @@
 import { VOID_COLORS } from "../../design/colors";
-import BackgroundBlock from "../ui/BackgroundBlock";
-import heroImage from "../../assets/voxel-void1.png";
-
-const getDeviceFixedRatio = (): string => {
-  if (typeof window !== "undefined") {
-    return `${window.screen.width} / ${window.screen.height}`;
-  }
-  return "16 / 9";
-};
-
-const FIXED_ASPECT_RATIO = getDeviceFixedRatio();
+import heroImagePC from "../../assets/MacBook_Pro_16-heroSection_2.png";
+import heroImageIOS from "../../assets/iPhone_16_Pro_Max-heroSection.png";
 
 const HeroSection = () => {
   return (
     <section
       id="top"
-      className="relative bg-black w-full overflow-hidden"
-      style={{ aspectRatio: FIXED_ASPECT_RATIO }}
+      className="relative w-full overflow-hidden bg-black transition-all duration-300 ease-out aspect-[9/27] md:aspect-[16/9]"
     >
-      <div
-        className="absolute inset-0 bg-linear-to-b z-10"
-        style={{ background: VOID_COLORS.WHITE }}
+      <img
+        className="hidden xl:block xl:w-full xl:h-full user-select-none pointer-events-none"
+        src={heroImagePC}
+        alt=""
+        aria-hidden="true"
       />
       <img
-        className="absolute top-[1vw] -left-[1vw] w-[70vw] h-[40vw] opacity-45 pointer-events-none select-none z-10"
-        src={heroImage}
-        alt="Voxel Void Hero"
+        className="block w-full h-full user-select-none pointer-events-none xl:hidden"
+        src={heroImageIOS}
+        alt=""
+        aria-hidden="true"
       />
+
+      {/* スクロールダウン指示 */}
       <div
-        className="absolute w-[20vw] h-[50vw] bg-linear-to-b z-10"
-        style={{ background: VOID_COLORS.BLACK }}
-      />
-      <div
-        className="absolute pointer-events-none top-[7vw] left-[7vw] text-[5vw] z-10"
-        style={{ color: VOID_COLORS.WHITE }}
-      >
-        Voxel
-      </div>
-      <div
-        className="absolute pointer-events-none top-[7vw] left-[21vw] text-[5vw] z-10"
+        className="absolute left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 pointer-events-none
+          bottom-[5%]
+          top-[620px]
+          md:top-[43vw] md:bottom-auto md:gap-[0.5vw]"
         style={{ color: VOID_COLORS.BLACK }}
       >
-        Void
-      </div>
-      <BackgroundBlock
-        position="absolute -top-[1vw] left-[58vw]"
-        size="w-[45vw] h-[45vw]"
-        rotation="rotate-[55deg]"
-        color={VOID_COLORS.BLACK}
-        borderColor={VOID_COLORS.BLACK}
-        className="opacity-100 z-10"
-      />
-      <div
-        className="absolute top-[43vw] left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-[0.5vw] pointer-events-none"
-        style={{ color: VOID_COLORS.BLACK }}
-      >
-        <span className="text-[1vw]">scroll</span>
-        <span className="text-[1.5vw] animate-scroll-arrow">↓</span>
+        <span className="text-sm md:text-[1vw]">scroll</span>
+        <span className="animate-bounce text-xl md:text-[1.5vw]">↓</span>
       </div>
     </section>
   );
