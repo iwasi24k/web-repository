@@ -10,43 +10,16 @@ const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
 
 const GameFeatures = () => {
   return (
-    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[2vw] xl:pl-[48vw] xl:pr-[2vw] xl:pt-[13vw] xl:pb-[5vw]">
-      {/* TopicSection: Voxel */}
+    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[2.5vw] xl:pl-[48vw] xl:pr-[2vw] xl:pt-[14vw] xl:pb-[7vw]">
       <TopicSection
         align="left"
         label={{
-          text: "Single Block World",
-          textColor: VOID_COLORS.WHITE,
-          blockColor: VOID_COLORS.GRAY_2,
-        }}
-        title={{
-          text: "Single Block World",
-          textColor: VOID_COLORS.BLACK,
-          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
-        }}
-        descriptionColor={VOID_COLORS.BLACK}
-        description={
-          <>
-            <p className="mb-4">
-              この世界に存在する全てのオブジェクトは、単一のブロックで構成されています。
-              <br />
-              装飾や余分な形状を排除し、「位置・色・動き」だけが意味を持つ世界。
-              視覚情報は最小限ですが、判断に必要な要素が揃っています。
-              <br />
-            </p>
-          </>
-        }
-      />
-      {/* TopicSection: Void */}
-      <TopicSection
-        align="left"
-        label={{
-          text: "Monochro Color World",
+          text: "Monochro × Block",
           textColor: VOID_COLORS.WHITE,
           blockColor: VOID_COLORS.GRAY_3,
         }}
         title={{
-          text: "Monochro Color World",
+          text: "Monochro × Block",
           textColor: VOID_COLORS.BLACK,
           textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
@@ -54,11 +27,13 @@ const GameFeatures = () => {
         description={
           <>
             <p className="mb-4">
-              世界は、上から下へ行くほど徐々に暗くなる光のグラデーションに包まれています。
+              この世界は、上から下へ行くほど暗くなる光のグラデーションに包まれた、白と黒を基調とするモノクロ空間で構成されています。
               <br />
-              上層では視界が保たれていますが、下層へ向かうほど光は失われ、空間そのものが沈み込むような印象を与えます。
+              下層へ進むにつれて光は失われ、空間そのものが沈み込むような印象を与えます。
               <br />
-              この世界の基調は、白と黒のみ。そこに、黄色と紫色という僅かな異色が混ざることで、均衡の崩れた空間と強い違和感を演出しています。
+              そこに差し込まれる黄色と紫色が、均衡の崩れた世界と強い違和感を際立たせます。
+              <br />
+              すべてのオブジェクトは単一のブロックで構成され、「位置・色・動き」だけが意味を持つ設計です。
             </p>
           </>
         }
