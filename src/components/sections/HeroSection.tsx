@@ -1,6 +1,6 @@
 import { VOID_COLORS } from "../../design/colors";
-import heroImagePC from "../../assets/MacBook_Pro_16-heroSection.png";
-import heroImageIOS from "../../assets/iPhone_16_Pro_Max-heroSection.png";
+import heroImagePC from "../../assets/MacBook_Pro_16-heroSection.avif";
+import heroImageIOS from "../../assets/iPhone_16_Pro_Max-heroSection.avif";
 
 const HeroSection = () => {
   return (
