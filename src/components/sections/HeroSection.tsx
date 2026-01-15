@@ -1,12 +1,12 @@
 import { VOID_COLORS } from "../../design/colors";
-import heroImagePC from "../../assets/MacBook_Pro_16-heroSection_2.png";
+import heroImagePC from "../../assets/MacBook_Pro_16-heroSection.png";
 import heroImageIOS from "../../assets/iPhone_16_Pro_Max-heroSection.png";
 
 const HeroSection = () => {
   return (
     <section
       id="top"
-      className="relative w-full overflow-hidden bg-black transition-all duration-300 ease-out aspect-[9/27] md:aspect-[16/9]"
+      className="relative w-full overflow-hidden bg-black transition-all duration-300 ease-out aspect-[9/28] md:aspect-[16/9]"
     >
       <img
         className="hidden xl:block xl:w-full xl:h-full user-select-none pointer-events-none"

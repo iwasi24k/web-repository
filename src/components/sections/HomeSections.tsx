@@ -75,7 +75,7 @@ export const HOME_SECTIONS_DATA = [
     titleSize: TITLE_SIZE_CLASS,
     bgColor: VOID_COLORS.BLACK,
     textColor: VOID_COLORS.WHITE,
-    sectionSize: CUSTOM_SIZE_CLASS,
+    sectionSize: "min-h-[600px] xl:min-h-[10vw]",
     content: <DeveloperComments />,
   },
 ] as const;

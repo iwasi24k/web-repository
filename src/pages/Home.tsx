@@ -53,7 +53,7 @@ const Home = () => {
       ))}
 
       {/* Footer */}
-      <WorldSection bgColor={FOOTER_COLOR} sectionSize="min-h-[15vw]">
+      <WorldSection bgColor={FOOTER_COLOR} sectionSize="min-h-[12vw]">
         <Footer />
       </WorldSection>
     </div>

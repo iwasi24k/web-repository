@@ -10,7 +10,7 @@ const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
 
 const GameSystem = () => {
   return (
-    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] md:pt-[25vw] xl:pt-[13vw] xl:gap-[10vw] xl:pb-[35vw]">
+    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] md:pt-[25vw] xl:pt-[13vw] xl:gap-[10vw] xl:pb-[10vw]">
       {/* TopicSection: Overview */}
       <TopicSection
         align="left"
@@ -45,6 +45,16 @@ const GameSystem = () => {
         }
       />
       {/* UI Component */}
+      <h2
+        className="
+        font-bold
+        mx-auto text-[1.4rem] mt-[50px]
+        md:text-[2.5vw] 
+        xl:text-[2.5vw] xl:ml-[7vw] xl:mt-[22vw]"
+        style={{ color: VOID_COLORS.BLACK }}
+      >
+        「Monochro × Block × MoveingField」
+      </h2>
 
       {/* Carousel Component */}
       <Carousel

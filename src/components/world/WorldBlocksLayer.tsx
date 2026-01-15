@@ -85,7 +85,7 @@ const WorldBlocksLayer = () => {
     <div className="fixed inset-0 z-20 overflow-hidden pointer-events-none">
       {blocks.map((block, index) => {
         const translateY = scrollY * block.depth * 0.2;
-        const opacity = 0.2 + 0.2 * block.depth; // 遠いブロックは薄く
+        const opacity = 0.05 + 0.05 * block.depth; // 遠いブロックは薄く
 
         return (
           <div
