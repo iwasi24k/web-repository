@@ -79,14 +79,12 @@ const GameFeatures = () => {
                 xl:aspect-[7/4.5]
             "
         // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
-        // これで md:p-3 などが効くようになります
         itemClassName="
                 border-black
                 border-[0.1rem] xl:border-[0.125rem]
                 p-[0.5rem] xl:p-[0.75rem]
             "
         // 3. スライド間の隙間
-        // ここを広げすぎると画像の幅が狭くなり、比率が変わって見えるので注意
         slideGap="10%"
         indicatorActiveColor={VOID_COLORS.GRAY_4}
         indicatorInactiveColor={VOID_COLORS.GRAY_2}

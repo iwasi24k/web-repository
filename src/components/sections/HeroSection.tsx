@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <section
       id="top"
-      className="relative w-full overflow-hidden bg-black transition-all duration-300 ease-out aspect-[9/28] md:aspect-[16/9]"
+      className="relative w-full overflow-hidden bg-black transition-all duration-300 ease-out aspect-9/28 md:aspect-video"
     >
       <img
         className="hidden xl:block xl:w-full xl:h-full user-select-none pointer-events-none"
@@ -25,7 +25,7 @@ const HeroSection = () => {
       <div
         className="absolute left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 pointer-events-none
           bottom-[5%]
-          top-[620px]
+          top-155
           md:top-[43vw] md:bottom-auto md:gap-[0.5vw]"
         style={{ color: VOID_COLORS.BLACK }}
       >
