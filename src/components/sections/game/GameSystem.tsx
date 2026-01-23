@@ -45,16 +45,16 @@ const GameSystem = () => {
         }
       />
       {/* UI Component */}
-      <h2
+      <h3
         className="
         font-bold
-        mx-auto text-[1.4rem] mt-[50px]
+        mx-auto text-[20px] mt-12.5
         md:text-[2.5vw] 
         xl:text-[2.5vw] xl:ml-[7vw] xl:mt-[22vw]"
         style={{ color: VOID_COLORS.BLACK }}
       >
         「Monochro × Block × MoveingField」
-      </h2>
+      </h3>
 
       {/* Carousel Component */}
       <Carousel
@@ -78,14 +78,12 @@ const GameSystem = () => {
                 xl:aspect-[7/4.5]
             "
         // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
-        // これで md:p-3 などが効くようになります
         itemClassName="
                 border-black
                 border-[0.1rem] xl:border-[0.125rem]
                 p-[0.5rem] xl:p-[0.75rem]
             "
         // 3. スライド間の隙間
-        // ここを広げすぎると画像の幅が狭くなり、比率が変わって見えるので注意
         slideGap="10%"
         indicatorActiveColor={VOID_COLORS.GRAY_4}
         indicatorInactiveColor={VOID_COLORS.GRAY_1}

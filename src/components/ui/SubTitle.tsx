@@ -11,12 +11,12 @@ const SubTitle = ({
 }: SubTitleProps) => {
   return (
     <div className="inline-flex flex-col">
-      <h1
+      <h2
         className={`font-bold tracking-wide ${textSize}`}
         style={{ color: textColor }}
       >
         {text}
-      </h1>
+      </h2>
 
       {/* 下線 */}
       <div

@@ -13,7 +13,7 @@ const GRID_DATA = [
   "C++",
   "DirectX 11",
   "Assimp",
-  "DirectXMath + 自作数学ライブラリ",
+  "DirectXMath\n + \n自作数学ライブラリ",
   "自作ログライブラリ",
 ];
 

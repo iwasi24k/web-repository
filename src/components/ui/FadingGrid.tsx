@@ -170,7 +170,7 @@ const FadingGrid = ({
             return (
               <div
                 key={`text-${index}`}
-                className={`flex items-center justify-center text-center ${textSizeClass} ${transitionBase} ${
+                className={`flex items-center justify-center text-center whitespace-pre-line ${textSizeClass} ${transitionBase} ${
                   // 座標移動のみクラスで制御
                   active ? "translate-y-0" : "translate-y-4"
                 }`}
