@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* 1. Tailwind v4 のテーマ定義 */
+:root {
+  --color-void-black: #1c1c1c;
+  --color-void-white: #f5f5f5;
+  --color-void-purple: #9400d3;
+  --color-void-yellow: #facc15;
+
+  --color-void-gray-1: #cccccc;
+  --color-void-gray-2: #999999;
+  --color-void-gray-3: #666666;
+  --color-void-gray-4: #333333;
+
+  --font-display: "Orbitron", sans-serif;
+
+  /* --header-h: 5vw; */
+
+  --nav-mobile-bg: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-void-gray-2) 100%, transparent) 0%,
+    color-mix(in srgb, var(--color-void-gray-3) 100%, transparent) 50%,
+    color-mix(in srgb, var(--color-void-gray-4) 100%, transparent) 100%
+  );
+}
+
+/* 2. 基本のリセット */
+/* Viteデフォルトの :root や body の設定はすべて削除します */
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-void-black);
+    color: var(--color-void-white);
+    /* body で flex center をしないことで、Layout が正しく広がります */
+  }
+}
+
+/* 3. グローバルスタイル */
+/* globals.css */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* PCのみ smooth */
+@media (hover: hover) and (pointer: fine) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@keyframes scroll-arrow {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(0.6vw);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-scroll-arrow {
+    animation: scroll-arrow 1.8s ease-in-out infinite;
+  }
+}
