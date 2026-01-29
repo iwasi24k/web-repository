@@ -14,7 +14,7 @@ const StackItem = ({
     >
       {title}
     </h3>
-    <p className="text-sm leading-relaxed opacity-90">{children}</p>
+    <div className="text-sm leading-relaxed opacity-90">{children}</div>
   </div>
 );
 
