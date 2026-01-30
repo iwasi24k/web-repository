@@ -1,7 +1,8 @@
 import heroImageIOS from "../../assets/texture/iPhone_16_Pro_Max-heroSection.avif";
 import HeroVideo from "../ui/HeroVideo";
-import heroVideo from "../../assets/video/My Project.mp4";
 import titleLogoImage from "../../assets/texture/TitleLogo.png";
+
+const heroVideo = "https://kcysptyhmayszh5a.public.blob.vercel-storage.com/My-Project.mp4";
 
 const HeroSection = () => {
   return (
