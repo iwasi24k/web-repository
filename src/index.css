@@ -14,8 +14,6 @@
 
   --font-display: "Orbitron", sans-serif;
 
-  /* --header-h: 5vw; */
-
   --nav-mobile-bg: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--color-void-gray-2) 100%, transparent) 0%,
@@ -62,11 +60,5 @@ html {
   100% {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-@layer utilities {
-  .animate-scroll-arrow {
-    animation: scroll-arrow 1.8s ease-in-out infinite;
   }
 }
