@@ -1,7 +1,7 @@
 import { VOID_COLORS } from "../../../design/colors";
 import TopicSection from "../../../layouts/TopicSection";
 import Gear from "../../ui/Gear";
-import gitImage from "../../../assets/gitFlow2.svg";
+import gitImage from "../../../assets/texture/gitFlow2.svg";
 
 const Workflow = () => {
   return (

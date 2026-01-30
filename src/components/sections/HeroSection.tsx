@@ -1,8 +1,7 @@
-// import heroImagePC from "../../assets/MacBook_Pro_16-heroSection.avif";
-import heroImageIOS from "../../assets/iPhone_16_Pro_Max-heroSection.avif";
+import heroImageIOS from "../../assets/texture/iPhone_16_Pro_Max-heroSection.avif";
 import HeroVideo from "../ui/HeroVideo";
 import heroVideo from "../../assets/video/My Project.mp4";
-import titleLogoImage from "../../assets/TitleLogo.png";
+import titleLogoImage from "../../assets/texture/TitleLogo.png";
 
 const HeroSection = () => {
   return (

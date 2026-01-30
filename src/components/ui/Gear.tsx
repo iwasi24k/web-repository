@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import gearImage from "../../assets/gear.svg";
+import gearImage from "../../assets/texture/gear.svg";
 
 type GearProps = {
   className?: string;
