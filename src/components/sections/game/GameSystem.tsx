@@ -2,9 +2,9 @@ import { VOID_COLORS } from "../../../design/colors";
 import TopicSection from "../../../layouts/TopicSection";
 import Carousel from "../../ui/Carousel";
 
-import voxelImages0 from "../../../assets/voxel-void0.png";
-import voxelImages1 from "../../../assets/voxel-void1.png";
-import voxelImages2 from "../../../assets/voxel-void2.png";
+import voxelImages0 from "../../../assets/texture/voxel-void0.png";
+import voxelImages1 from "../../../assets/texture/voxel-void1.png";
+import voxelImages2 from "../../../assets/texture/voxel-void2.png";
 
 const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
 
