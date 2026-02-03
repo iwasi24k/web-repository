@@ -2,6 +2,8 @@ import heroImageIOS from "../../assets/texture/iPhone_16_Pro_Max-heroSection.avi
 import HeroVideo from "../ui/HeroVideo";
 import titleLogoImage from "../../assets/texture/TitleLogo.png";
 
+// import heroVideo from "../../assets/video/HeroVideo.mp4"; // Local Video
+
 const youtubeVideoId = "QLOil6zAvwY";
 
 const HeroSection = () => {
@@ -17,7 +19,8 @@ const HeroSection = () => {
         aria-hidden="true"
       />
 
-      <HeroVideo type="youtube" videoId={youtubeVideoId} />
+      <HeroVideo type="youtube" videoId={youtubeVideoId} titleName="HeroVideo" />
+      {/* <HeroVideo type="file" src={heroVideo} titleName="HeroVideo" /> */} {/* Local Video */}
 
       <div
         className="absolute hidden xl:block inset-0 z-20 pointer-events-none"
