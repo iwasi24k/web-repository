@@ -2,7 +2,7 @@ import heroImageIOS from "../../assets/texture/iPhone_16_Pro_Max-heroSection.avi
 import HeroVideo from "../ui/HeroVideo";
 import titleLogoImage from "../../assets/texture/TitleLogo.png";
 
-const heroVideo = "https://kcysptyhmayszh5a.public.blob.vercel-storage.com/My-Project.mp4";
+const youtubeVideoId = "QLOil6zAvwY";
 
 const HeroSection = () => {
   return (
@@ -17,7 +17,8 @@ const HeroSection = () => {
         aria-hidden="true"
       />
 
-      <HeroVideo video={heroVideo} />
+      <HeroVideo type="youtube" videoId={youtubeVideoId} />
+
       <div
         className="absolute hidden xl:block inset-0 z-20 pointer-events-none"
         style={{ backgroundColor: "rgba(0,0,0,0.35)" }}
