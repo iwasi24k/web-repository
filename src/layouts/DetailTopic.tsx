@@ -27,15 +27,25 @@ const DetailTopic = ({
       className={`
         ${position ? "md:absolute" : ""}
         flex flex-col gap-[8vw] xl:gap-[1vw]
-        ${position} 
-        
+        ${position}
+        w-full max-w-full overflow-hidden
       `}
     >
-      <div className="items-center text-center mx-auto">
+      <div className="items-center text-center mx-auto w-full px-4">
         {title && <DetailTitle {...title} />}
       </div>
+
       <div
-        className={`${textSize} leading-relaxed ml-[5vw] mr-[5vw] xl:ml-[25vw] xl:mr-[25vw]`}
+        className={`
+            ${textSize} 
+            leading-relaxed 
+            
+            mx-[5vw] xl:mx-[25vw]
+            
+            min-w-0 
+            max-w-full
+            break-words
+        `}
         style={{ color: descriptionColor }}
       >
         {description}
