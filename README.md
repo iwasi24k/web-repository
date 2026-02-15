@@ -1,73 +1,300 @@
-# React + TypeScript + Vite
+# Voxel Void Official Website / Voxel Void 公式サイト
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official website for Voxel Void — a 3D survival action game built with a custom C++ component-based engine.  
+自作C++コンポーネント指向エンジンで開発した3Dサバイバルアクションゲーム「Voxel Void」の公式Webサイトです。
 
-Currently, two official plugins are available:
+[View Live Demo](https://voxel-void.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?logo=vite&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+![Hero Image](./public/Thumbnail.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Overview / 概要
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+**English**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+This project serves two purposes:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+1. Present the game's world, system design, and development philosophy  
+2. Demonstrate structured front-end engineering aligned with real-world development practices  
+
+The website architecture mirrors the component-oriented design philosophy used in the game engine.
+
+**日本語**
+
+本プロジェクトは以下の2点を目的としています：
+
+1. ゲームの世界観・設計思想・開発構造の提示  
+2. 実務水準を意識したフロントエンド設計力の提示  
+
+ゲームエンジンのコンポーネント指向設計思想を、Webアーキテクチャにも反映させています。
+
+---
+
+## Architecture Philosophy / 設計思想
+
+**English**
+
+- Component-based UI structure  
+- Clear responsibility boundaries  
+- Reusable and isolated modules  
+- Minimal dependency surface  
+
+Directory structure:
+
+```
+src/
+ ├─ components/
+ │   ├─ sections/
+ │   └─ ui/
+ ├─ layout/
+ └─ pages/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Each section is implemented as an independent React component.
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+**日本語**
 
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+- コンポーネント指向UI設計  
+- 責務分離の明確化  
+- 再利用可能な独立モジュール構造  
+- 依存関係を最小限に抑制  
+
+各セクションは独立したReactコンポーネントとして実装されています。
+
+---
+
+## Tech Stack / 使用技術
+
+### Front-End Core
+
+- React 19  
+- TypeScript 5.x  
+- Tailwind CSS v4  
+- Vite  
+- Node.js  
+
+### Tooling & Quality
+
+- ESLint  
+- Prettier  
+- Git / GitHub  
+- GitHub Actions  
+- OpenAI API（AIによるPRレビュー）
+
+---
+
+## Technology Rationale / 技術選定理由
+
+### React
+**English:** Adopted to leverage experience building a custom component-based C++ game engine.  
+**日本語:** C++で構築したコンポーネント方式エンジンの運用経験を活かすため採用。
+
+### TypeScript
+**English:** Ensures type safety and early validation, reflecting experience with static typing in C++.  
+**日本語:** C++開発経験を踏まえ、静的型付けによる事前検証を実現するため採用。
+
+### Tailwind CSS
+**English:** Utility-first styling prevents CSS fragmentation in solo development.  
+**日本語:** 個人開発におけるCSS分離管理の煩雑化を防ぐため採用。
+
+### Vite
+**English:** Provides high-speed development server and optimized builds.  
+**日本語:** 高速な開発環境と最適化ビルドを実現するため採用。
+
+---
+
+## Functional Overview / 機能概要
+
+**English**
+
+- Single-page vertical section layout  
+- Scroll-synchronized navigation  
+- Active section highlighting  
+- Mobile hamburger menu  
+- Detail pages via react-router-dom  
+- Fully responsive design  
+- Static content delivery  
+
+**日本語**
+
+- シングルページ縦構成レイアウト    
+- スクロール同期ナビゲーション    
+- アクティブセクションのハイライト表示    
+- モバイル用ハンバーガーメニュー    
+- react-router-domによるセクションルーティング    
+- レスポンシブ対応    
+- 静的コンテンツ配信構成
+
+---
+
+## Non-Functional Design / 非機能設計
+
+**English**
+
+- Lightweight dependency structure  
+- Type-safe implementation  
+- ESLint / Prettier enforced consistency  
+- Verified on the latest versions of Chrome, Edge, and Safari
+- No backend / No API communication  
+- Static-first architecture  
+
+**日本語**
+
+- 依存関係を最小化した軽量構造    
+- 型安全な実装    
+- ESLint / Prettierによるコード品質統制    
+- Chrome / Edge / Safari（最新版）で動作確認    
+- バックエンドおよびAPI通信なし    
+- 静的ファースト設計
+
+---
+
+## Development Workflow / 開発フロー
+
+**English**
+
+To simulate real-world team development:
+
+- Two separate development environments  
+- Two GitHub accounts  
+- Pull request–based workflow  
+
+**日本語**
+
+実務に近い開発を再現するため：
+
+- 2台のPC  
+- 2つのGitHubアカウント  
+- プルリクエストベースの開発  
+
+ブランチ運用・レビュー前提の変更管理を実践しました。
+
+---
+
+## CI & AI Code Review / CIとAIレビュー
+
+**English**
+
+GitHub Actions workflow:
+
+1. Trigger on Pull Request  
+2. Extract diff only  
+3. Send diff to OpenAI API  
+4. Post automated review comment  
+
+Optimization:
+
+- Diff-only review  
+- Token usage reduction  
+- Manual merge decision required  
+
+To skip AI review, include the following in the commit message:
+
 ```
+[skip ai]
+```
+
+
+**日本語**
+
+GitHub Actionsによる自動化フロー：
+
+1. プルリクエスト作成時に起動    
+2. 差分のみ抽出    
+3. OpenAI APIへ送信    
+4. 自動レビューコメントを投稿    
+
+最適化方針：
+
+- 差分のみレビュー    
+- トークン使用量削減    
+- マージは人間が最終判断    
+
+AIレビューをスキップする場合は、コミットメッセージに以下を含めてください：
+
+```
+[skip ai]
+```
+
+---
+
+## Getting Started / 実行方法
+
+```bash
+git clone https://github.com/iwasi24k/web-repository.git
+cd web-repository
+npm install
+npm run dev
+```
+
+Build:
+
+```bash
+npm run build
+```
+
+---
+
+## Deployment / デプロイ
+
+**English**
+
+- Automated deployment via Vercel    
+- Integrated with GitHub Actions
+
+**日本語**
+
+- Vercelによる自動デプロイ  
+- GitHub Actions連携  
+
+---
+
+## Future Roadmap / 今後の拡張
+
+**English**
+
+- Introduce Vitest and React Testing Library    
+- Extend architecture for backend integration    
+- Define performance metrics using Lighthouse
+
+**日本語**
+
+- Vitest + React Testing Library導入  
+- バックエンド連携可能な構造拡張  
+- Lighthouse等による性能指標明確化  
+
+---
+
+## Evaluation Focus / 評価観点
+
+**English**
+
+This repository emphasizes:
+
+- Architectural clarity  
+- Maintainability  
+- CI-integrated workflow  
+- Engineering structure over visual complexity  
+
+**日本語**
+
+本リポジトリでは以下を重視しています：
+
+- アーキテクチャの明確性    
+- 保守性    
+- CI統合型ワークフロー    
+- 見た目よりも設計構造の一貫性
+
+---
+
+## License
+
+MIT
