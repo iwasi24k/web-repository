@@ -4,6 +4,7 @@ Official website for Voxel Void — a 3D survival action game built with a custo
 自作C++コンポーネント指向エンジンで開発した3Dサバイバルアクションゲーム「Voxel Void」の公式Webサイトです。
 
 [View Live Demo](https://voxel-void.vercel.app/)
+
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
