@@ -5,7 +5,7 @@ const Footer = () => {
         text-center mt-[4vw]
         text-[2vw] 
         md:text-[1.5vw] 
-        xl:text-[1vw] 
+        lg:text-[1vw] 
         2xl:text-[0.9vw] 
         text-void-gray-2 pb-[3vw] 
         select-none

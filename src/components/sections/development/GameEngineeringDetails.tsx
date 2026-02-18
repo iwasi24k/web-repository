@@ -9,12 +9,12 @@ import mathLibCode from "../../world/details/mathLibCode";
 
 const GameEngineeringDetails = () => {
   return (
-    <div className="flex flex-col mx-auto items-center w-full pt-[20vw] pb-[20vw] xl:pt-[7vw] xl:pb-[10vw]">
+    <div className="flex flex-col mx-auto items-center w-full pt-[20vw] pb-[20vw] lg:pt-[7vw] lg:pb-[10vw]">
       <DetailTopic
         title={{
           text: "Core Technologies",
           textColor: VOID_COLORS.WHITE,
-          textSize: "text-[30px] md:text-[3.5vw] xl:text-[2.5vw]",
+          textSize: "text-[30px] md:text-[3.5vw] lg:text-[2.5vw]",
         }}
         descriptionColor={VOID_COLORS.WHITE}
         description={

@@ -5,7 +5,7 @@ import gitImage from "../../../assets/texture/gitFlow2.svg";
 
 const Workflow = () => {
   return (
-    <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[5vw] xl:pt-[13vw] xl:pb-[5vw]">
+    <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] lg:gap-[5vw] lg:pt-[13vw] lg:pb-[5vw]">
       <TopicSection
         align="left"
         label={{
@@ -16,7 +16,7 @@ const Workflow = () => {
         title={{
           text: "Git Workflow",
           textColor: VOID_COLORS.WHITE,
-          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
+          textSize: "text-[20px] md:text-[3.5vw] lg:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.WHITE}
         description={
@@ -37,13 +37,13 @@ const Workflow = () => {
         }
       />
       <img
-        className="xl:ml-[7vw] w-[85vw] xl:w-[40vw] user-select-none pointer-events-none"
+        className="lg:ml-[7vw] w-[85vw] lg:w-[40vw] user-select-none pointer-events-none"
         src={gitImage}
         alt=""
         aria-hidden="true"
       />
       <Gear
-        className="absolute -top-[15vw] -right-[25vw] user-select-none pointer-events-none opacity-20 xl:opacity-30"
+        className="absolute -top-[15vw] -right-[25vw] user-select-none pointer-events-none opacity-20 lg:opacity-30"
         size="w-[60vw]"
         duration={50}
         direction="ccw"

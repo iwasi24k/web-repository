@@ -11,7 +11,7 @@ import DeveloperComments from "./development/DeveloperComments";
 // 各Sectionの高さ
 const CUSTOM_SIZE_CLASS = "min-h-[10vw]";
 
-const TITLE_SIZE_CLASS = "text-[7vw] xl:text-[5vw]";
+const TITLE_SIZE_CLASS = "text-[7vw] lg:text-[5vw]";
 
 export type HomeSectionData = {
   id: string;
@@ -75,7 +75,7 @@ export const HOME_SECTIONS_DATA = [
     titleSize: TITLE_SIZE_CLASS,
     bgColor: VOID_COLORS.BLACK,
     textColor: VOID_COLORS.WHITE,
-    sectionSize: "min-h-[600px] xl:min-h-[10vw]",
+    sectionSize: "min-h-[600px] lg:min-h-[10vw]",
     content: <DeveloperComments />,
   },
 ] as const;

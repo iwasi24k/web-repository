@@ -20,13 +20,13 @@ const DetailTopic = ({
   title,
   descriptionColor = "#fff",
   description,
-  textSize = "text-[3.5vw] md:text-[2vw] xl:text-[1vw] 2xl:text-[0.9vw]",
+  textSize = "text-[3.5vw] md:text-[2vw] lg:text-[1vw] 2xl:text-[0.9vw]",
 }: DetailTopicProps) => {
   return (
     <section
       className={`
         ${position ? "md:absolute" : ""}
-        flex flex-col gap-[8vw] xl:gap-[1vw]
+        flex flex-col gap-[8vw] lg:gap-[1vw]
         ${position}
         w-full max-w-full overflow-hidden
       `}
@@ -40,7 +40,7 @@ const DetailTopic = ({
             ${textSize} 
             leading-relaxed 
             
-            mx-[5vw] xl:mx-[25vw]
+            mx-[5vw] lg:mx-[25vw]
             
             min-w-0 
             max-w-full

@@ -44,7 +44,7 @@ export default function TransitionButton({
         active:scale-95
 
         ${textSize}
-        ${borderColor ? "border-[1.3px] xl:border-2" : ""}
+        ${borderColor ? "border-[1.3px] lg:border-2" : ""}
         ${className}
       `}
       style={

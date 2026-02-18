@@ -152,18 +152,18 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       {/* ハンバーガーボタン（スマホ専用） */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-3 right-4 z-70 p-3 xl:hidden group"
+        className="fixed top-3 right-4 z-70 p-3 lg:hidden group"
         aria-label="Toggle menu"
       >
-        <div className="flex flex-col gap-1.5 w-8 drop-shadow-[0_0_8px_rgba(0,0,0,1)]">
+        <div className="flex flex-col gap-1.5 w-8 md:gap-3.5 md:w-15 drop-shadow-[0_0_8px_rgba(0,0,0,1)]">
           <span
-            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}
+            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2 md:translate-y-4" : ""}`}
           />
           <span
             className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`}
           />
           <span
-            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2 md:-translate-y-4" : ""}`}
           />
         </div>
       </button>
@@ -172,7 +172,7 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       <nav
         className={`
           fixed inset-0 z-60 flex flex-col items-start text-left px-[10vw] justify-center gap-8
-          bg-(image:--nav-mobile-bg) xl:bg-none
+          bg-(image:--nav-mobile-bg) lg:bg-none
           
           transition-all duration-400 ease-out
           ${
@@ -181,8 +181,8 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
               : "opacity-0 invisible pointer-events-none"
           }
 
-          xl:static xl:inset-auto xl:bg-transparent xl:flex-row xl:opacity-100 xl:visible xl:pointer-events-auto
-          xl:justify-center xl:gap-[3vw] xl:max-w-full md:px-4 xl:h-full xl:items-center xl:pb-[1.1vw]
+          lg:static lg:inset-auto lg:bg-transparent lg:flex-row lg:opacity-100 lg:visible lg:pointer-events-auto
+          lg:justify-center lg:gap-[3vw] lg:max-w-full md:px-4 lg:h-full lg:items-center lg:pb-[1.1vw]
         `}
       >
         {NAV_ITEMS.map((item, index) => {
@@ -196,14 +196,14 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
               style={{ transitionDelay: isOpen ? `${index * 50}ms` : "0ms" }}
               className={`
                 relative py-2 transition-all 
-                text-xl font-bold xl:font-normal xl:text-[12px] 2xl:text-[14px]
-                whitespace-nowrap tracking-widest xl:tracking-wider
+                text-xl font-bold lg:font-normal lg:text-[12px] 2xl:text-[14px]
+                whitespace-nowrap tracking-widest lg:tracking-wider
                 transform-gpu
                 
                 ${
                   isOpen
                     ? "duration-400 ease-out opacity-100 translate-y-0"
-                    : "duration-10 ease-in opacity-0 translate-y-2 xl:opacity-100 xl:translate-y-0"
+                    : "duration-10 ease-in opacity-0 translate-y-2 lg:opacity-100 lg:translate-y-0"
                 }
 
                 ${
@@ -213,16 +213,16 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
                 }
               `}
             >
-              <span className="xl:hidden mr-[0.6em]">■</span>
+              <span className="lg:hidden mr-[0.6em]">■</span>
               {item.label}
               <span
                 className={`
                   absolute -bottom-1 
                   left-0 
                   h-0.5 
-                  w-[70vw] xl:w-full 
+                  w-[70vw] lg:w-full 
                   bg-white shadow-[0_0_8px_white]
-                  xl:transition-all xl:duration-300 xl:ease-in-out
+                  lg:transition-all lg:duration-300 lg:ease-in-out
                   ${isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
                 `}
               />
