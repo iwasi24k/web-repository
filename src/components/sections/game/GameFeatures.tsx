@@ -64,7 +64,14 @@ const GameFeatures = () => {
         type="youtube"
         videoId={youtubeVideoId}
         className="
-          hidden 
+          relative
+          w-[90vw]
+          mx-auto
+          mt-[10vw]
+
+          lg:w-[80vw]
+          lg:mt-0
+
           xl:flex
           xl:absolute
           xl:top-[17vw]
@@ -77,7 +84,14 @@ const GameFeatures = () => {
         type="file"
         src={playVideo}
         className="
-          hidden 
+                    relative
+          w-[90vw]
+          mx-auto
+          mt-[10vw]
+
+          md:w-[80vw]
+          md:mt-[7vw] 
+
           xl:flex
           xl:absolute
           xl:top-[17vw]

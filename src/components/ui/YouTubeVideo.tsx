@@ -1,7 +1,7 @@
 type VideoBaseProps = {
   className?: string;
   itemClassName?: string;
-  titleName: string;
+  titleName?: string;
 };
 
 type YouTubeProps = VideoBaseProps & {
@@ -25,7 +25,7 @@ const Video = ({
 }: VideoProps) => {
   return (
     <div
-      className={`relative w-full aspect-[16/9.37] 2xl:aspect-[16/9.3] ${className}`}
+      className={`relative w-full aspect-[16/9.37] lg:aspect-[16/9.17] xl:aspect-[16/9.37] 2xl:aspect-[16/9.3] ${className}`}
     >
       <div className={`absolute inset-0 ${itemClassName}`}>
         {props.type === "youtube" ? (

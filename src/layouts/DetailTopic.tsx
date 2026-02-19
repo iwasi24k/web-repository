@@ -44,7 +44,7 @@ const DetailTopic = ({
             
             min-w-0 
             max-w-full
-            break-words
+            break-word
         `}
         style={{ color: descriptionColor }}
       >
