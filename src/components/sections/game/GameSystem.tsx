@@ -10,11 +10,11 @@ const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
 
 const GameSystem = () => {
   return (
-    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] md:pt-[25vw] lg:pt-[13vw] lg:gap-[10vw] lg:pb-[10vw]">
+    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] md:pt-[25vw] xl:pt-[13vw] xl:gap-[10vw] xl:pb-[10vw]">
       {/* TopicSection: Overview */}
       <TopicSection
         align="left"
-        position="pl-[7vw] pr-[7vw] lg:pr-[40vw]"
+        position="pl-[7vw] pr-[7vw] xl:pr-[40vw]"
         label={{
           text: "About",
           textColor: VOID_COLORS.BLACK,
@@ -23,7 +23,7 @@ const GameSystem = () => {
         title={{
           text: "About",
           textColor: VOID_COLORS.BLACK,
-          textSize: "text-[20px] md:text-[3.5vw] lg:text-[2vw]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -50,7 +50,7 @@ const GameSystem = () => {
         font-bold
         mx-auto text-[20px] mt-12.5
         md:text-[4vw] md:mt-[7vw]
-        lg:text-[2.5vw] lg:ml-[7vw] lg:mt-[22vw]"
+        xl:text-[2.5vw] xl:ml-[7vw] xl:mt-[22vw]"
         style={{ color: VOID_COLORS.BLACK }}
       >
         「Monochro × Block × MoveingField」
@@ -59,7 +59,7 @@ const GameSystem = () => {
       {/* Carousel Component */}
       <Carousel
         images={voxelImages}
-        // 1. 全体の配置とサイズ (ここでレスポンシブ制御)
+        // 1. 全体の配置とサイズ
         className="
                 relative
                 w-[90vw]
@@ -70,18 +70,18 @@ const GameSystem = () => {
                 md:w-[80vw]
                 md:mt-[7vw]
 
-                lg:absolute
-                lg:top-[15vw]
-                lg:left-[55vw]
-                lg:w-[40vw]
-                lg:mt-0
-                lg:aspect-[7/4.5]
+                xl:absolute
+                xl:top-[15vw]
+                xl:left-[55vw]
+                xl:w-[40vw]
+                xl:mt-0
+                xl:aspect-[7/4.5]
             "
-        // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
+        // 2. スライド個別のデザイン
         itemClassName="
                 border-black
-                border-[0.1rem] lg:border-[0.125rem]
-                p-[0.5rem] lg:p-[0.75rem]
+                border-[0.1rem] xl:border-[0.125rem]
+                p-[0.5rem] xl:p-[0.75rem]
             "
         // 3. スライド間の隙間
         slideGap="10%"

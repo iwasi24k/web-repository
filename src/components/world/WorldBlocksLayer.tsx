@@ -44,7 +44,7 @@ const WorldBlocksLayer = () => {
   // Resize & block regeneration
   useEffect(() => {
     const updateBlocks = () => {
-      if (typeof window === "undefined") return; // 念のため
+      if (typeof window === "undefined") return;
       const width = window.innerWidth;
       const bp = getBreakpoint(width);
       const dpr = window.devicePixelRatio;

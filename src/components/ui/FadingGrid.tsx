@@ -93,15 +93,13 @@ const FadingGrid = ({
     ? "transition-all ease-[cubic-bezier(0.16,1,0.3,1)]"
     : "transition-none";
 
-  // ... (前半部分は変更なし)
-
   return (
     <div
       ref={ref}
       className={`flex items-center justify-center overflow-hidden ${containerClass}`}
     >
       <div className={`relative ${cellWidthClass} ${cellHeightClass}`}>
-        {/* 1. 線レイヤー (変更なし) */}
+        {/* 1. 線レイヤー */}
         <div
           className="absolute inset-0 pointer-events-none z-0"
           style={maskStyle}
@@ -154,7 +152,7 @@ const FadingGrid = ({
           ))}
         </div>
 
-        {/* 2. テキストレイヤー (透明度の制御を style に集約) */}
+        {/* 2. テキストレイヤー */}
         <div
           className="relative z-10 grid w-full h-full"
           style={{
@@ -171,14 +169,12 @@ const FadingGrid = ({
               <div
                 key={`text-${index}`}
                 className={`flex items-center justify-center text-center whitespace-pre-line ${textSizeClass} ${transitionBase} ${
-                  // 座標移動のみクラスで制御
                   active ? "translate-y-0" : "translate-y-4"
                 }`}
                 style={{
                   color: textColor,
                   transitionDuration: `${animationDuration}s`,
                   transitionDelay: delay,
-                  // 透明度をインラインスタイルで直接制御（!importantに近い優先度になります）
                   opacity: active ? 1 : 0,
                 }}
               >

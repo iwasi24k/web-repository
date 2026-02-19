@@ -34,13 +34,11 @@
 }
 
 /* 3. グローバルスタイル */
-/* globals.css */
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
-/* PCのみ smooth */
 @media (hover: hover) and (pointer: fine) {
   html {
     scroll-behavior: smooth;

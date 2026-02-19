@@ -20,7 +20,7 @@ const DetailTitle = ({
 
       {/* 下線 */}
       <div
-        className="hidden lg:block lg:mt-[0.8vw] lg:mb-[1vw] h-px relative w-[80vw]"
+        className="hidden xl:block xl:mt-[0.8vw] xl:mb-[1vw] h-px relative w-[80vw]"
         style={{ backgroundColor: textColor }}
       />
     </div>

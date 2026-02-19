@@ -20,7 +20,7 @@ const SubTitle = ({
 
       {/* 下線 */}
       <div
-        className="mt-2 lg:mt-[0.5vw] h-px relative w-[120%] left-[-2.5%]"
+        className="mt-2 xl:mt-[0.5vw] h-px relative w-[120%] left-[-2.5%]"
         style={{ backgroundColor: textColor }}
       />
     </div>

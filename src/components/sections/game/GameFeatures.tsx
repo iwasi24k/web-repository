@@ -10,7 +10,7 @@ const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
 
 const GameFeatures = () => {
   return (
-    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] lg:gap-[2.5vw] lg:pl-[48vw] lg:pr-[2vw] lg:pt-[14vw] lg:pb-[7vw]">
+    <div className="flex flex-col gap-1.25 pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[2.5vw] xl:pl-[48vw] xl:pr-[2vw] xl:pt-[14vw] xl:pb-[7vw]">
       <TopicSection
         align="left"
         label={{
@@ -21,7 +21,7 @@ const GameFeatures = () => {
         title={{
           text: "Monochro × Block",
           textColor: VOID_COLORS.BLACK,
-          textSize: "text-[20px] md:text-[3.5vw] lg:text-[2vw]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -49,7 +49,7 @@ const GameFeatures = () => {
         title={{
           text: "Moving Field Structure",
           textColor: VOID_COLORS.BLACK,
-          textSize: "text-[20px] md:text-[3.5vw] lg:text-[2vw]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.BLACK}
         description={
@@ -67,22 +67,22 @@ const GameFeatures = () => {
       {/* Carousel Component */}
       <Carousel
         images={voxelImages}
-        // 1. 全体の配置とサイズ (ここでレスポンシブ制御)
+        // 1. 全体の配置とサイズ
         className="
                 hidden 
-                lg:flex
+                xl:flex
 
-                lg:absolute
-                lg:top-[17vw]
-                lg:left-[5vw]
-                lg:w-[40vw]
-                lg:aspect-[7/4.5]
+                xl:absolute
+                xl:top-[17vw]
+                xl:left-[5vw]
+                xl:w-[40vw]
+                xl:aspect-[7/4.5]
             "
-        // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
+        // 2. スライド個別のデザイン
         itemClassName="
                 border-black
-                border-[0.1rem] lg:border-[0.125rem]
-                p-[0.5rem] lg:p-[0.75rem]
+                border-[0.1rem] xl:border-[0.125rem]
+                p-[0.5rem] xl:p-[0.75rem]
             "
         // 3. スライド間の隙間
         slideGap="10%"

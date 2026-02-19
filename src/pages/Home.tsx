@@ -40,7 +40,7 @@ const Home = () => {
           sectionSize={section.sectionSize}
         >
           {/* Title */}
-          <div className="absolute flex flex-col top-[3vw] left-[6vw] lg:top-[1vw]">
+          <div className="absolute flex flex-col top-[3vw] left-[6vw] xl:top-[1vw]">
             <TextTitle
               text={section.title}
               textColor={section.textColor}

@@ -5,7 +5,6 @@ export type TextBlockProps = {
   textSize?: string;
   blockColor?: string;
 
-  /** テキストとブロックの余白 */
   padding?: string;
 };
 
@@ -13,10 +12,10 @@ const TextBlock = ({
   text,
 
   textColor = "#fff",
-  textSize = "text-[8px] md:text-[1.2vw] lg:text-[0.8vw]",
+  textSize = "text-[8px] md:text-[1.2vw] xl:text-[0.8vw]",
   blockColor = "transparent",
 
-  padding = "px-2 py-[3px] lg:px-[1vw] lg:py-[0.4vw] 2xl:px-[0.8vw] 2xl:py-[0.3vw]",
+  padding = "px-2 py-[3px] xl:px-[1vw] xl:py-[0.4vw] 2xl:px-[0.8vw] 2xl:py-[0.3vw]",
 }: TextBlockProps) => {
   return (
     <div

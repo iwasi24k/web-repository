@@ -5,7 +5,7 @@ import BackgroundBlock from "../../ui/BackgroundBlock";
 const DeveloperComments = () => {
   return (
     <>
-      <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] lg:gap-[5vw] lg:pt-[13vw] lg:pb-[15vw]">
+      <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[5vw] xl:pt-[13vw] xl:pb-[15vw]">
         <TopicSection
           align="left"
           label={{
@@ -16,7 +16,7 @@ const DeveloperComments = () => {
           title={{
             text: "Comments",
             textColor: VOID_COLORS.WHITE,
-            textSize: "text-[20px] md:text-[3.5vw] lg:text-[2vw]",
+            textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
           }}
           descriptionColor={VOID_COLORS.WHITE}
           description={
@@ -37,7 +37,7 @@ const DeveloperComments = () => {
       </div>
 
       <BackgroundBlock
-        position="absolute top-[104.3vw] left-[49.3vw] md:top-[20vw] lg:left-[70vw]"
+        position="absolute top-[104.3vw] left-[49.3vw] md:top-[20vw] xl:left-[70vw]"
         size="w-[200px] h-[200px] md:w-[20vw] md:h-[20vw]"
         rotation="rotate-[55deg]"
         color={VOID_COLORS.WHITE}
@@ -45,7 +45,7 @@ const DeveloperComments = () => {
         className="opacity-10 md:opacity-10"
       />
       <BackgroundBlock
-        position="absolute top-[103vw] left-[48vw] md:top-[19.5vw] lg:left-[69.5vw]"
+        position="absolute top-[103vw] left-[48vw] md:top-[19.5vw] xl:left-[69.5vw]"
         size="w-[210px] h-[210px] md:w-[21vw] md:h-[21vw]"
         rotation="rotate-[55deg]"
         borderSize="border-[1px] md:border-[0.1vw]"

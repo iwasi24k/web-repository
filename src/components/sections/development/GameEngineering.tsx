@@ -18,18 +18,15 @@ const GRID_DATA = [
 ];
 
 const SETTINGS = {
-  // 色（カラーコード）のみStyleへ
   lineColor: "#FFFFFF",
   textColor: "#FFFFFF",
 
-  // 数値指定はTailwindの任意値クラスを活用
   lineWidth: "1px",
 
-  // レスポンシブなレイアウト・サイズはClassとして渡す
-  textSizeClass: "lg:text-[1vw] lg:font-light lg:tracking-widest",
-  cellWidthClass: "lg:w-[90vw]",
-  cellHeightClass: "lg:h-[12vw]",
-  containerClass: "lg:mx-auto lg:mt-[5vw]",
+  textSizeClass: "xl:text-[1vw] xl:font-light xl:tracking-widest",
+  cellWidthClass: "xl:w-[90vw]",
+  cellHeightClass: "xl:h-[12vw]",
+  containerClass: "xl:mx-auto xl:mt-[5vw]",
 
   rows: 1,
   cols: 4,
@@ -42,7 +39,7 @@ const SETTINGS = {
 
 const GameEngineering = () => {
   return (
-    <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] lg:gap-[2vw] lg:pt-[13vw] lg:pb-[5vw]">
+    <div className="flex flex-col gap-[10vw] pt-[30vw] pb-[15vw] pl-[7vw] pr-[7vw] md:pt-[25vw] xl:gap-[2vw] xl:pt-[13vw] xl:pb-[5vw]">
       <TopicSection
         align="left"
         label={{
@@ -53,7 +50,7 @@ const GameEngineering = () => {
         title={{
           text: "Technology Stack",
           textColor: VOID_COLORS.WHITE,
-          textSize: "text-[20px] md:text-[3.5vw] lg:text-[2vw]",
+          textSize: "text-[20px] md:text-[3.5vw] xl:text-[2vw]",
         }}
         descriptionColor={VOID_COLORS.WHITE}
         description={
@@ -75,11 +72,11 @@ const GameEngineering = () => {
           </>
         }
       />
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         <TransitionButton
           text="詳細ページへ →"
           to="/detail/game-engineering"
-          textSize="lg:text-[0.8vw]"
+          textSize="xl:text-[0.8vw]"
           textColor={VOID_COLORS.WHITE}
           hoverTextColor={VOID_COLORS.GRAY_4}
           hoverBgColor={VOID_COLORS.GRAY_1}
@@ -87,7 +84,7 @@ const GameEngineering = () => {
         />
         <FadingGrid {...SETTINGS} />
       </div>
-      <div className="block lg:hidden">
+      <div className="block xl:hidden">
         <TransitionButton
           text="詳細ページへ →"
           to="/detail/game-engineering"
@@ -95,7 +92,7 @@ const GameEngineering = () => {
           textColor={VOID_COLORS.WHITE}
           hoverTextColor={VOID_COLORS.WHITE}
           borderColor={VOID_COLORS.WHITE}
-          className="mt-5 lg:hidden"
+          className="mt-5 xl:hidden"
         />
       </div>
     </div>

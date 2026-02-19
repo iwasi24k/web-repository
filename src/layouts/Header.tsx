@@ -13,7 +13,7 @@ const Header = () => {
         ${
           isOpen
             ? "h-full bg-black"
-            : "h-0 lg:h-[5vw] bg-linear-to-b from-black/80 via-black/40 to-transparent"
+            : "h-0 xl:h-[5vw] bg-linear-to-b from-black/80 via-black/40 to-transparent"
         }
       `}
     >
@@ -21,7 +21,7 @@ const Header = () => {
         className={`grid grid-cols-[auto_1fr_auto] items-center px-[4vw] ${isOpen ? "h-0" : "h-full"}`}
       >
         <img
-          className="hidden lg:block lg:w-[8vw] user-select-none pointer-events-none"
+          className="hidden xl:block xl:w-[8vw] user-select-none pointer-events-none"
           src={titleLogoImage}
           alt="Voxel Void"
         />
@@ -29,7 +29,7 @@ const Header = () => {
         {/* 状態と関数をPropsとして渡す */}
         <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
 
-        <div className="hidden lg:block lg:w-0" />
+        <div className="hidden xl:block xl:w-0" />
       </div>
     </header>
   );
