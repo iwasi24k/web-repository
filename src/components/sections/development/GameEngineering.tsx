@@ -18,14 +18,11 @@ const GRID_DATA = [
 ];
 
 const SETTINGS = {
-  // 色（カラーコード）のみStyleへ
   lineColor: "#FFFFFF",
   textColor: "#FFFFFF",
 
-  // 数値指定はTailwindの任意値クラスを活用
   lineWidth: "1px",
 
-  // レスポンシブなレイアウト・サイズはClassとして渡す
   textSizeClass: "xl:text-[1vw] xl:font-light xl:tracking-widest",
   cellWidthClass: "xl:w-[90vw]",
   cellHeightClass: "xl:h-[12vw]",

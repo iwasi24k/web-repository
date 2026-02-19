@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navigation from "../components/ui/Navigation";
-import titleLogoImage from "../assets/texture/TitleLogo.png"
+import titleLogoImage from "../assets/texture/TitleLogo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

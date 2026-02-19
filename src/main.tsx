@@ -10,8 +10,6 @@ import DetailLayout from "./layouts/DetailLayout";
 import GameEngineeringDetails from "./components/sections/development/GameEngineeringDetails";
 import WebEngineeringDetails from "./components/sections/development/WebEngineeringDetails";
 
-// import NotFound from "./pages/NotFound";
-
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -29,8 +27,6 @@ const router = createBrowserRouter([
           { path: "web-engineering", element: <WebEngineeringDetails /> },
         ],
       },
-
-      // { path: "*", element: <NotFound /> },
     ],
   },
 ]);
