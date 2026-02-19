@@ -77,6 +77,7 @@ const GameFeatures = () => {
           xl:top-[17vw]
           xl:left-[5vw]
           xl:w-[40vw]
+          xl:mt-0
         "
         titleName="PlayVideo"
       />
