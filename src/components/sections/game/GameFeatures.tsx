@@ -1,12 +1,9 @@
 import { VOID_COLORS } from "../../../design/colors";
 import TopicSection from "../../../layouts/TopicSection";
-import Carousel from "../../ui/Carousel";
+import Video from "../../ui/YouTubeVideo";
 
-import voxelImages0 from "../../../assets/texture/voxel-void0.png";
-import voxelImages1 from "../../../assets/texture/voxel-void1.png";
-import voxelImages2 from "../../../assets/texture/voxel-void2.png";
-
-const voxelImages = [voxelImages0, voxelImages1, voxelImages2];
+// import playVideo from "../../../assets/video/PlayVideo.mp4"; // Local Video
+const youtubeVideoId = "XAigso8URxw";
 
 const GameFeatures = () => {
   return (
@@ -63,32 +60,45 @@ const GameFeatures = () => {
         }
       />
       {/* UI Component */}
-
-      {/* Carousel Component */}
-      <Carousel
-        images={voxelImages}
-        // 1. 全体の配置とサイズ
+      <Video
+        type="youtube"
+        videoId={youtubeVideoId}
         className="
-                hidden 
-                xl:flex
+          relative
+          w-[90vw]
+          mx-auto
+          mt-[10vw]
 
-                xl:absolute
-                xl:top-[17vw]
-                xl:left-[5vw]
-                xl:w-[40vw]
-                xl:aspect-[7/4.5]
-            "
-        // 2. スライド個別のデザイン
-        itemClassName="
-                border-black
-                border-[0.1rem] xl:border-[0.125rem]
-                p-[0.5rem] xl:p-[0.75rem]
-            "
-        // 3. スライド間の隙間
-        slideGap="10%"
-        indicatorActiveColor={VOID_COLORS.GRAY_4}
-        indicatorInactiveColor={VOID_COLORS.GRAY_2}
+          lg:w-[80vw]
+          lg:mt-[7vw]
+
+          xl:flex
+          xl:absolute
+          xl:top-[17vw]
+          xl:left-[5vw]
+          xl:w-[40vw]
+        "
+        titleName="PlayVideo"
       />
+      {/* <Video
+        type="file"
+        src={playVideo}
+        className="
+          relative
+          w-[90vw]
+          mx-auto
+          mt-[10vw]
+
+          md:w-[80vw]
+          md:mt-[7vw] 
+
+          xl:flex
+          xl:absolute
+          xl:top-[17vw]
+          xl:left-[5vw]
+          xl:w-[40vw]
+        "
+      /> */}
     </div>
   );
 };

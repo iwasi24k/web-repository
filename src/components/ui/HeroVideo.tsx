@@ -1,16 +1,24 @@
 import HeroYouTube from "./HeroYouTube";
 
-type HeroVideoProps =
-  | {
-      type: "file";
-      src: string;
-      titleName: string;
-    }
-  | {
-      type: "youtube";
-      videoId: string;
-      titleName: string;
-    };
+type VideoBaseProps = {
+  className?: string;
+  itemClassName?: string;
+  titleName?: string;
+};
+
+type YouTubeProps = VideoBaseProps & {
+  type: "youtube";
+  videoId: string;
+  titleName: string;
+};
+
+type FileVideoProps = VideoBaseProps & {
+  type: "file";
+  src: string;
+  titleName: string;
+};
+
+type HeroVideoProps = YouTubeProps | FileVideoProps;
 
 const HeroVideo = (props: HeroVideoProps) => {
   return (
