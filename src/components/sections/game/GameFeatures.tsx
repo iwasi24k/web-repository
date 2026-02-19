@@ -70,7 +70,7 @@ const GameFeatures = () => {
           mt-[10vw]
 
           lg:w-[80vw]
-          lg:mt-0
+          lg:mt-[7vw]
 
           xl:flex
           xl:absolute
@@ -84,7 +84,7 @@ const GameFeatures = () => {
         type="file"
         src={playVideo}
         className="
-                    relative
+          relative
           w-[90vw]
           mx-auto
           mt-[10vw]
