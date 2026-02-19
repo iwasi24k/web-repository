@@ -5,7 +5,6 @@ export type TextBlockProps = {
   textSize?: string;
   blockColor?: string;
 
-  /** テキストとブロックの余白 */
   padding?: string;
 };
 

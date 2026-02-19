@@ -34,7 +34,7 @@ const TopicSection = ({
   return (
     <section
       className={`
-        ${position ? "md:absolute" : ""}
+        ${position ? "xl:absolute" : ""}
         flex flex-col gap-[2vw] xl:gap-[1vw]
         ${position} 
         ${isCenter ? "items-center text-center -translate-x-1/2" : "items-start text-left"}

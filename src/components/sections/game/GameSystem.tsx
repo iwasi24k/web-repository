@@ -49,7 +49,7 @@ const GameSystem = () => {
         className="
         font-bold
         mx-auto text-[20px] mt-12.5
-        md:text-[2.5vw] 
+        md:text-[4vw] md:mt-[7vw]
         xl:text-[2.5vw] xl:ml-[7vw] xl:mt-[22vw]"
         style={{ color: VOID_COLORS.BLACK }}
       >
@@ -59,7 +59,7 @@ const GameSystem = () => {
       {/* Carousel Component */}
       <Carousel
         images={voxelImages}
-        // 1. 全体の配置とサイズ (ここでレスポンシブ制御)
+        // 1. 全体の配置とサイズ
         className="
                 relative
                 w-[90vw]
@@ -68,7 +68,7 @@ const GameSystem = () => {
                 mt-[10vw]
 
                 md:w-[80vw]
-                md:mt-[45vw]
+                md:mt-[7vw]
 
                 xl:absolute
                 xl:top-[15vw]
@@ -77,7 +77,7 @@ const GameSystem = () => {
                 xl:mt-0
                 xl:aspect-[7/4.5]
             "
-        // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
+        // 2. スライド個別のデザイン
         itemClassName="
                 border-black
                 border-[0.1rem] xl:border-[0.125rem]

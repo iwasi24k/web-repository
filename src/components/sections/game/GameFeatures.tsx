@@ -67,7 +67,7 @@ const GameFeatures = () => {
       {/* Carousel Component */}
       <Carousel
         images={voxelImages}
-        // 1. 全体の配置とサイズ (ここでレスポンシブ制御)
+        // 1. 全体の配置とサイズ
         className="
                 hidden 
                 xl:flex
@@ -78,7 +78,7 @@ const GameFeatures = () => {
                 xl:w-[40vw]
                 xl:aspect-[7/4.5]
             "
-        // 2. スライド個別のデザイン (ここもTailwindクラスで指定！)
+        // 2. スライド個別のデザイン
         itemClassName="
                 border-black
                 border-[0.1rem] xl:border-[0.125rem]

@@ -155,15 +155,15 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
         className="fixed top-3 right-4 z-70 p-3 xl:hidden group"
         aria-label="Toggle menu"
       >
-        <div className="flex flex-col gap-1.5 w-8 drop-shadow-[0_0_8px_rgba(0,0,0,1)]">
+        <div className="flex flex-col gap-1.5 w-8 md:gap-3.5 md:w-15 drop-shadow-[0_0_8px_rgba(0,0,0,1)]">
           <span
-            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}
+            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2 md:translate-y-4" : ""}`}
           />
           <span
             className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`}
           />
           <span
-            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2 md:-translate-y-4" : ""}`}
           />
         </div>
       </button>

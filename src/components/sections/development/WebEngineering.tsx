@@ -33,8 +33,7 @@ const SETTINGS = {
   lineWidth: "1px",
 
   // レスポンシブなレイアウト・サイズはClassとして渡す
-  textSizeClass:
-    "xl:text-[1vw] xl:font-light xl:tracking-widest",
+  textSizeClass: "xl:text-[1vw] xl:font-light xl:tracking-widest",
   cellWidthClass: "xl:w-[90vw]",
   cellHeightClass: "xl:h-[12vw]",
   containerClass: "xl:mx-auto xl:mt-[5vw]",

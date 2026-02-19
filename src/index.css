@@ -30,18 +30,15 @@
     padding: 0;
     background-color: var(--color-void-black);
     color: var(--color-void-white);
-    /* body で flex center をしないことで、Layout が正しく広がります */
   }
 }
 
 /* 3. グローバルスタイル */
-/* globals.css */
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
-/* PCのみ smooth */
 @media (hover: hover) and (pointer: fine) {
   html {
     scroll-behavior: smooth;

@@ -10,7 +10,7 @@ const HeroSection = () => {
   return (
     <section
       id="top"
-      className="relative w-full overflow-hidden bg-black transition-all duration-300 ease-out aspect-9/28 md:aspect-video"
+      className="relative w-full overflow-hidden bg-black transition-all duration-300 ease-out aspect-9/28 xl:aspect-video"
     >
       <img
         className="block w-full h-full user-select-none pointer-events-none xl:hidden"
@@ -18,10 +18,13 @@ const HeroSection = () => {
         alt=""
         aria-hidden="true"
       />
-
-      <HeroVideo type="youtube" videoId={youtubeVideoId} titleName="HeroVideo" />
-      {/* <HeroVideo type="file" src={heroVideo} titleName="HeroVideo" /> */} {/* Local Video */}
-
+      <HeroVideo
+        type="youtube"
+        videoId={youtubeVideoId}
+        titleName="HeroVideo"
+      />
+      {/* <HeroVideo type="file" src={heroVideo} titleName="HeroVideo" /> */}{" "}
+      {/* Local Video */}
       <div
         className="absolute hidden xl:block inset-0 z-20 pointer-events-none"
         style={{ backgroundColor: "rgba(0,0,0,0.35)" }}
