@@ -3,8 +3,7 @@ import HeroVideo from "../ui/HeroVideo";
 import titleLogoImage from "../../assets/texture/TitleLogo.png";
 
 // import heroVideo from "../../assets/video/HeroVideo.mp4"; // Local Video
-
-const youtubeVideoId = "QLOil6zAvwY";
+const youtubeVideoId = "nAyRcDht2Rk";
 
 const HeroSection = () => {
   return (
@@ -23,8 +22,8 @@ const HeroSection = () => {
         videoId={youtubeVideoId}
         titleName="HeroVideo"
       />
-      {/* <HeroVideo type="file" src={heroVideo} titleName="HeroVideo" /> */}{" "}
-      {/* Local Video */}
+      {/* <HeroVideo type="file" src={heroVideo} titleName="HeroVideo" /> */}
+
       <div
         className="absolute hidden xl:block inset-0 z-20 pointer-events-none"
         style={{ backgroundColor: "rgba(0,0,0,0.35)" }}
