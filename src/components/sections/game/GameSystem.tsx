@@ -53,7 +53,7 @@ const GameSystem = () => {
         xl:text-[2.5vw] xl:ml-[7vw] xl:mt-[22vw]"
         style={{ color: VOID_COLORS.BLACK }}
       >
-        「Monochro × Block × MoveingField」
+        「Monochro × Block × MovingField」
       </h3>
 
       {/* Carousel Component */}
